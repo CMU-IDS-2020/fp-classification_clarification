@@ -2,8 +2,8 @@
 
 * **Online URL**: TODO
 * **Team members**:
-  * Contact person: cdeveral@andrew.cmu.edu
-  * TODO@andrew.cmu.edu
+  * Contact person: TODO@andrew.cmu.edu
+  * cdeveral@andrew.cmu.edu
   * TODO@andrew.cmu.edu
   * TODO@andrew.cmu.edu
 * **Track**: Narrative
