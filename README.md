@@ -30,3 +30,10 @@ Update towards the end of the project.
 - [ ] A 5 minute video demonstration.
 - [ ] Update Readme according to Canvas instructions.
 - [ ] A detailed project report. The contact should submit the video and report as a PDF on Canvas.
+
+## Running the Project
+
+* Install idyll
+  * npm install -g idyll
+* Run the project
+  * idyll
