@@ -9,11 +9,13 @@
     "authorView": false
   },
   "dependencies": {
+    "d3": "^4.0.0",
     "idyll": "^4.0.0",
     "idyll-d3-component": "^2.0.0",
-    "d3": "^4.0.0"
+    "idyll-vega-lite": "^2.0.3"
   },
   "devDependencies": {
-    "gh-pages": "^0.12.0"
+    "gh-pages": "^0.12.0",
+    "idyll-plugin-table-of-contents": "^1.0.2"
   }
 }

@@ -2,32 +2,143 @@
 
 [Header
   fullWidth:true
-  title:"Final Project"
-  subtitle:"Welcome to Idyll. Open index.idyll to start writing"
-  author:"Your Name Here"
+  title:"A Beginners Guide To Machine Learning"
+  subtitle:"A friendly, interactive guide to teach you about classification, a type of supervised learning"
+  author:"Laura Howard, Christian Deverall, Nathan Jen, Juliette Wong"
   authorLink:"https://idyll-lang.org"
   date:`(new Date()).toDateString()`
   background:"#222222"
   color:"#ffffff"
-   /]
+/]
 
-## Introduction
-
-This is an Idyll scrolly-telling post. It is generated via
-the file `index.idyll`. To compile this post using
-idyll, run the command `idyll` inside of this directory.
-
-Idyll posts are designed to support interaction and
-data-driven graphics.
-
-Configuration can be done via the `idyll` field in `package.json`.
-
-[var name:"state" value:0 /]
-
-[Scroller currentStep:state]
+[var name:"introStep" value:0 /]
+[Scroller currentStep: introStep]
 
   [Graphic className:"d3-component-container"]
-    [CustomD3Component className:"d3-component" state:`state+1` /]
+    [img src:"static/images/machineLearning.png" /]
+  [/Graphic]
+  [Step]
+    # A Brief History of Classification
+  [/Step]
+
+  [Step]
+    ## Can computers learn from data?
+
+    This question led to the development of machine learning.  In 1959, Arthur Samuel (a pioneer computer scientist) 
+    defined machine learning as “the field of study that [b] gives computers the ability to learn without being explicitly programmed[/b]”.
+  [/Step]
+
+  [Step]
+    While this may sound complex, we hope to make some machine learning concepts approachable and easy to learn 
+    through examples and activities in this article.
+
+    Think of it this way – as you can learn these concepts through experimenting with examples, computers can do the same!
+  [/Step]
+
+  [Step]
+    To grasp how machine learning works, we need to understand [b]algorithms - the method for creating models from data[/b].  
+    In this article, we will show you algorithms that perform classification tasks on a famous machine learning dataset.  
+    Classification in today’s world is responsible for advancements in speech recognition, face detection, handwriting 
+    recognition, and even email spam identification.
+  [/Step]
+[/Scroller]
+
+[var name:"caseStudyStep" value:0 /]
+[Scroller currentStep: caseStudyStep]
+
+  [Graphic className:"d3-component-container"]
+    [Conditional if:`caseStudyStep === 0 || caseStudyStep === 1`]
+      [img src:"static/images/iris.png" /]
+    [/Conditional]
+    [Conditional if:`caseStudyStep === 3`]
+      [img src:"static/images/knn.png" /]
+    [/Conditional]
+    [Conditional if:`caseStudyStep === 4`]
+      [img src:"static/images/dt.png" /]
+    [/Conditional]
+    [Conditional if:`caseStudyStep === 5`]
+      [img src:"static/images/lr.png" /]
+    [/Conditional]
+  [/Graphic]
+
+  [Step]
+    # Case Study
+  [/Step]
+
+  [Step]
+    ## Here is your task:
+
+    You are Edgar Anderson, a world-renowned botanist.  Your favorite flower is the iris, and to understand this enigmatic 
+    flower, you recorded measurements of 50 samples of 3 species of iris flowers, totaling 150 instances.  Your measurements 
+    consist of the length and width of the sepals and petals (note that sepals are leafs that protect petals when they are budding, 
+    and act as the support for the petals once bloomed).  You want to see if you can use pattern recognition to predict the iris 
+    species based on your measurements.
+  [/Step]
+
+  [Step]
+    To complete this task, you will use three commonly used classification algorithms:  
+
+      1. K Nearest Number (KNN)   
+
+      2. Decision Trees  
+
+      3. Logistic Regression.
+  [/Step]
+
+  [Step]
+    ## K Nearest Number (KNN)
+
+    The K Nearest Number (KNN) algorithm classifies data based on data that is most similar.  
+    You will use this algorithm to guess the iris species based on similar known data.  
+  [/Step]
+
+  [Step]
+    ## Decision Trees
+
+    The Decision Tree algorithm splits data according to certain parameters. One can think 
+    of this as having a flow-chart like structure, where each data point goes through the tree 
+    and is subsequently labeled based on the attributes of the data point.  
+  [/Step]
+
+  [Step]
+    ## Logistic Regression  
+
+    Logistic Regression is a classification algorithm that first finds a linear regression 
+    based on the attributes of the data, and then passes that regression output to a sigmoid 
+    function to convert it to a probability of whether or not the data point is of a certain class.
+  [/Step]
+[/Scroller]
+
+[var name:"introStep" value:0 /]
+[Scroller currentStep: introStep]
+
+  [Graphic className:"d3-component-container"]
+    [img src:"static/images/overfitting.png" /]
+  [/Graphic]
+
+  [Step]
+    # Warning: Overfitting
+  [/Step]
+
+  [Step]
+    One thing to pay attention to when using algorithms is overfitting.  
+    Overfitting happens when a model is too complex and starts to classify according 
+    to a random error in the data over the expected relationships between variables.  
+    A model is considered “overfit” when it fits your training data really well, yet performs 
+    poorly on new data. One way to identify an “overfit” is to reserve a portion of your data 
+    set and introduce it after you are finished creating your model to see how it performs.
+  [/Step]
+[/Scroller]
+
+[data name:"iris" source:"iris.csv" /]
+[Table data:iris /]
+
+[var name:"state2" value:0 /]
+
+[Scroller currentStep:state2]
+
+  [Graphic className:"d3-component-container"]
+    [CustomD3Component className:"d3-component" state:`state2+1` /]
   [/Graphic]
 
   [Step]
