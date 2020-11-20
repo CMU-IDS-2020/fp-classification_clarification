@@ -32,3 +32,10 @@
     margin-left: 65vw;
   }
 }
+
+.introSubtitle {
+  font-size: 24px;
+  /* font-weight: bold; */
+  text-align: center;
+  font-style: italic;
+}

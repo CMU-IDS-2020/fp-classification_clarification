@@ -18,11 +18,9 @@
     [img src:"static/images/machineLearning.png" /]
   [/Graphic]
   [Step]
-    # A Brief History of Classification
-  [/Step]
+    # A Brief History of Classification  
 
-  [Step]
-    ## Can computers learn from data?
+    [p className:'introSubtitle']Can computers learn from data?[/p]
 
     This question led to the development of machine learning.  In 1959, Arthur Samuel (a pioneer computer scientist) 
     defined machine learning as “the field of study that [b] gives computers the ability to learn without being explicitly programmed[/b]”.
@@ -50,13 +48,13 @@
     [Conditional if:`caseStudyStep === 0`]
       [img src:"static/images/iris.png" /]
     [/Conditional]
-    [Conditional if:`caseStudyStep === 2`]
+    [Conditional if:`caseStudyStep === 2 || caseStudyStep === 3 || caseStudyStep === 4`]
       [img src:"static/images/knn.png" /]
     [/Conditional]
-    [Conditional if:`caseStudyStep === 3`]
+    [Conditional if:`caseStudyStep === 5`]
       [img src:"static/images/dt.png" /]
     [/Conditional]
-    [Conditional if:`caseStudyStep === 4`]
+    [Conditional if:`caseStudyStep === 6`]
       [img src:"static/images/lr.png" /]
     [/Conditional]
   [/Graphic]
@@ -74,7 +72,7 @@
   [Step]
     To complete this task, you will use three commonly used classification algorithms:  
 
-      1. K Nearest Number (KNN)   
+      1. K Nearest Neighbors (KNN)   
 
       2. Decision Trees  
 
@@ -82,10 +80,30 @@
   [/Step]
 
   [Step]
-    ## K Nearest Number (KNN)
+    ## K Nearest Neighbors (KNN)
 
-    The K Nearest Number (KNN) algorithm classifies data based on data that is most similar.  
+    The K Nearest Neighbors (KNN) algorithm classifies data based on data that is most similar.  
     You will use this algorithm to guess the iris species based on similar known data.  
+
+    We can apply this to the iris dataset, and vary the number of neighbors (K) in our model. 
+    When we do so, we see that our model outputs different accuracy levels for both the training 
+    data and the test data. 
+  [/Step]
+
+  [Step]
+    In this example the the right, our “test point” is the red star in the center. when we set K = 3, we 
+    see that there are two points near it that are class B, and one that is class A. Since class 
+    B is the majority, we label the test point as class B. However, when we set K = 6, 4 of the 
+    nearest neighbors to the test point are in class A, while 2 are in class B. Thus, when K = 6, 
+    we would label our test point as Class A.
+  [/Step]
+
+  [Step]
+    We can apply this to the iris dataset, and vary the number of neighbors (K) in our model. 
+    When we do so, we see that our model outputs different accuracy levels for both the training 
+    data and the test data. 
+
+    [img src:"static/images/knn2.png" /]
   [/Step]
 
   [Step]
