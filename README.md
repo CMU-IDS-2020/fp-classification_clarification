@@ -35,7 +35,5 @@ Update towards the end of the project.
 
 * Install idyll
   * npm install -g idyll
-* Install dependencies
-  * npm install
 * Run the project
   * idyll
