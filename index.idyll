@@ -74,7 +74,7 @@
   [Step]
     To complete this task, you will use three commonly used classification algorithms:  
 
-      1. K Nearest Number (KNN)   
+      1. K Nearest Neighbors (KNN)   
 
       2. Decision Trees  
 
@@ -82,9 +82,9 @@
   [/Step]
 
   [Step]
-    ## K Nearest Number (KNN)
+    ## K Nearest Neighbors (KNN)
 
-    The K Nearest Number (KNN) algorithm classifies data based on data that is most similar.  
+    The K Nearest Neighbors (KNN) algorithm classifies data based on data that is most similar.  
     You will use this algorithm to guess the iris species based on similar known data.  
   [/Step]
 
