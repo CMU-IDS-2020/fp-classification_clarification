@@ -70,6 +70,17 @@
     [Table data:iris defaultPageSize:5/]
 
 
+  [IdyllVegaLite data:iris spec:`{
+    width: 300,
+    height: 200,
+    renderer: 'svg',
+    mark: "circle",
+    encoding: {
+      x: {field: "PetalLengthCm", type: "quantitative"},
+      y: {field: "SepalLengthCm", type: "quantitative"}
+    }
+  }` /]
+
 
 
 
