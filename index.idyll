@@ -72,6 +72,48 @@
 
 [/section]
 
+[section]
+
+  [p className:'introSubtitle']Exploring the dataset[/p]
+
+  This is the data that we are going to use to train our algorithms. 
+
+  (Explain Training)
+
+  (Have visualizations for different variables of the dataset)
+
+  [data name:"train" source:"train_data.csv" /]
+  [Table data:train defaultPageSize:5/]
+
+
+  [IdyllVegaLite data:train spec:`{
+    width: 300,
+    height: 200,
+    renderer: 'svg',
+    mark: "circle",
+    encoding: {
+      x: {field: "Age", type: "quantitative"},
+      y: {field: "Years of Education", type: "quantitative"}
+    }
+  }` /]
+
+[/section]
+
+[section]
+
+  [p className:'introSubtitle']Your Algorithm[/p]
+
+  (Present 3 points of data in the test set - one no money, one yes money, and one on the fringe)
+
+  (Have person guess and explain that this is pretty much what the algorithm is doing)
+
+  (Have visualizations for different variables of the dataset)
+  
+  [button]High Income[/button]
+  [button]Low Income[/button]
+
+[/section]
+
 [Scroller currentStep: caseStudyStep]
     [Graphic className:"d3-component-container"]
       [img src:"static/images/iris.png" /]
@@ -100,21 +142,6 @@
 
   [/Step]
   [/Scroller]
-    [data name:"iris" source:"iris.csv" /]
-    [Table data:iris defaultPageSize:5/]
-
-
-  [IdyllVegaLite data:iris spec:`{
-    width: 300,
-    height: 200,
-    renderer: 'svg',
-    mark: "circle",
-    encoding: {
-      x: {field: "PetalLengthCm", type: "quantitative"},
-      y: {field: "SepalLengthCm", type: "quantitative"}
-    }
-  }` /]
-
 
 [Scroller currentStep: Overfitting]
   [Graphic className:"d3-component-container"]
