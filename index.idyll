@@ -87,13 +87,60 @@
 
 
   [IdyllVegaLite data:train spec:`{
-    width: 300,
-    height: 200,
+    width: 500,
+    height: 250,
+    renderer: 'svg',
+    selection: {
+      click: {type: "multi"} 
+      },
+    mark: "bar",
+    encoding: {
+     y: {field: "High Income"},
+     x: {aggregate: "count", title: "Number of People with High Income"},
+     color: {field: "High Income", type: "nominal"},
+     opacity: {condition: {selection: "click", value: 1}, value: 0.3},
+    }
+}` /]
+
+[var name:"colorBy" value:`{}` /]
+  Color by:
+ [button onClick:`colorBy = {}` ]None[/button]
+ [button onClick:`colorBy = {field: 'High Income', type: 'nominal'}` ]High Income[/button]
+
+  [IdyllVegaLite data:train spec:`{
+    width: 500,
+    height: 250,
+    renderer: 'svg',
+    mark: "bar",
+    encoding: {
+     x: {field: "Age", bin: true},
+     y: {aggregate: "count", title: "Number of People"},
+     color: colorBy
+  }
+  }` /]
+
+  [IdyllVegaLite data:train spec:`{
+    width: 500,
+    height: 250,
+    renderer: 'svg',
+    mark: "bar",
+    encoding: {
+     x: {field: "Years of Education"},
+     y: {aggregate: "count", title: "Number of People"},
+     color: colorBy
+  }
+  }` /]
+
+  [IdyllVegaLite data:train spec:`{
+    width: 500,
+    height: 400,
     renderer: 'svg',
     mark: "circle",
     encoding: {
       x: {field: "Age", type: "quantitative"},
-      y: {field: "Years of Education", type: "quantitative"}
+      y: {field: "Years of Education", type: "quantitative"},
+      color: {field: "High Income", type: "nominal"},
+      tooltip: {field: "High Income", type: "nominal"}
     }
   }` /]
 
