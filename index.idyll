@@ -74,8 +74,6 @@
 [section]
   [p className:'introSubtitle']Exploring the dataset[/p]
 
-  (Explain the graphs)
-
   [IdyllVegaLite data:train spec:`{
     width: 500,
     height: 250,
