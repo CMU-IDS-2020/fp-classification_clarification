@@ -139,54 +139,59 @@
 
 [section]
 
-  [p className:'introSubtitle']Evaluating Your Model[/p]
-
-  After exploring the data, we hope that you got a sense of which patterns or variable values are more likely
-  to mean that someone is high income or not. This process was training your own model, and is exactly
-  what machine learning models do! However, now that your model is trained, lets put it to the test
-  with 3 mystery people.
-
   [aside]
     [img src:"static/images/mystery-person.png" /]
   [/aside]
 
-  [b]Mystery Person #1:[/b] [br/]
-  Age: 57 [br/]
-  Years of Education: 15
+  [p className:'introSubtitle']Evaluating Your Model[/p]
+  After exploring the data, we hope that you got a sense of which patterns or variable values are more likely
+  to mean that someone is high income or not. By doing this, you were actually training your own model, which is 
+  almost exactly what machine learning models do! However, now that your model is trained, lets put it to the test
+  and have you predict the income of 3 mystery people.
 
-  [var name:"correct1" value:`false` /]
-  [var name:"show1" value:`false` /]
-  [Answer correct:correct1 show:show1 /]
+  [div className:'person-section']
+    [b]Mystery Person #1:[/b] [br/]
+    Age: 57 [br/]
+    Years of Education: 15
 
-  [div className:'btn-row' onClick:`show1 = true`]
-    [button className:'evaluate-btn' onClick:`correct1 = true`]High Income[/button]
-    [button className:'evaluate-btn' onClick:`correct1 = false`]Low Income[/button]
+    [var name:"correct1" value:`false` /]
+    [var name:"show1" value:`false` /]
+    [Answer correct:correct1 show:show1 /]
+
+    [div className:'btn-row' onClick:`show1 = true`]
+      [button className:'evaluate-btn' onClick:`correct1 = true`]High Income[/button]
+      [button className:'evaluate-btn' onClick:`correct1 = false`]Low Income[/button]
+    [/div]
   [/div]
 
-  [b]Mystery Person #2:[/b] [br/]
-  Age: 22 [br/]
-  Years of Education: 7
+  [div className:'person-section']
+    [b]Mystery Person #2:[/b] [br/]
+    Age: 22 [br/]
+    Years of Education: 7
 
-  [var name:"correct2" value:`false` /]
-  [var name:"show2" value:`false` /]
-  [Answer correct:correct2 show:show2 /]
+    [var name:"correct2" value:`false` /]
+    [var name:"show2" value:`false` /]
+    [Answer correct:correct2 show:show2 /]
 
-  [div className:'btn-row' onClick:`show2 = true`]
-    [button className:'evaluate-btn' onClick:`correct2 = false`]High Income[/button]
-    [button className:'evaluate-btn' onClick:`correct2 = true`]Low Income[/button]
+    [div className:'btn-row' onClick:`show2 = true`]
+      [button className:'evaluate-btn' onClick:`correct2 = false`]High Income[/button]
+      [button className:'evaluate-btn' onClick:`correct2 = true`]Low Income[/button]
+    [/div]
   [/div]
 
-  [b]Mystery Person #3:[/b] [br/]
-  Age: 30 [br/]
-  Years of Education: 10
+  [div className:'person-section']
+    [b]Mystery Person #3:[/b] [br/]
+    Age: 30 [br/]
+    Years of Education: 10
 
-  [var name:"correct3" value:`false` /]
-  [var name:"show3" value:`false` /]
-  [Answer correct:correct3 show:show3 /]
+    [var name:"correct3" value:`false` /]
+    [var name:"show3" value:`false` /]
+    [Answer correct:correct3 show:show3 /]
 
-  [div className:'btn-row' onClick:`show3 = true`]
-    [button className:'evaluate-btn' onClick:`correct3 = false`]High Income[/button]
-    [button className:'evaluate-btn' onClick:`correct3 = true`]Low Income[/button]
+    [div className:'btn-row' onClick:`show3 = true`]
+      [button className:'evaluate-btn' onClick:`correct3 = false`]High Income[/button]
+      [button className:'evaluate-btn' onClick:`correct3 = true`]Low Income[/button]
+    [/div]
   [/div]
 
 [/section]
@@ -223,6 +228,8 @@
   set and introduce it after you are finished creating your model to see how it performs.
 
 [/section]
+
+[Knn /]
 
 [Scroller currentStep: KNN]
   [Graphic className:"d3-component-container"]
