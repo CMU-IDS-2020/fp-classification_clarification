@@ -53,8 +53,8 @@
 
   [p className:'introSubtitle']Is Income Predictable?[/p]
 
-  You are a high school student in the US wondering if getting a 4-year degree at a university will be worth it in the long run.  
-  You want to understand your likelihood of obtaining a higher income after graduation to pay off your student loans.  
+  You are starting your senior year of high school, and are trying to decide if you will futher your education beyond graduation.
+  You are wondering if you will see high enough returns in the long run that will allow you to live a comfortable life and pay off student loans.
   To do this, you look at US census data, and gather real examples of peoples:  
 
   [p className:'numbered-list']
@@ -63,7 +63,7 @@
   3. What their income is [br/]
   [/p]
 
-  You classify income as high if it exceeds $50,000 (Data is from the 1994 US census bureau database. $50,000 is worth ~$88k in 2020).
+  You classify income as high if it exceeds $50,000 (Data is from the 1994 US census bureau database. $50,000 is worth ~$88,000 in 2020).
 
   Lets take a quick look at the data below: 
 
@@ -93,6 +93,8 @@
   }`
 /]
 
+First, let’s look at a simple bar chart looking at the number of people with high income and without. As you can see here, there is an equal number of people (16) with high and low income in the dataset, totaling 32 records.
+
 [var name:"colorBy" value:`{}` /]
   Color by:
  [button onClick:`colorBy = {}` ]None[/button]
@@ -110,6 +112,8 @@
   }
   }` /]
 
+Next, let’s look at the spread of peoples’ ages. When the high income button is selected, you can see how old people who have a high income are.
+
   [IdyllVegaLite data:train spec:`{
     width: 500,
     height: 250,
@@ -121,6 +125,8 @@
      color: colorBy
   }
   }` /]
+
+This graph shows the amount of people by years of education.  When the high income button is selected, you can see how many years of education people with a high income have.
 
   [IdyllVegaLite data:train spec:`{
     width: 500,
@@ -134,6 +140,10 @@
       tooltip: {field: "High Income", type: "nominal"}
     }
   }` /]
+
+Finally, let’s look at the age and education variables together in a scatterplot.
+
+So, will more years of schooling truly result in a higher income for you?
 
 [/section]
 
