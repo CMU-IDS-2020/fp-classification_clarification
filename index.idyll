@@ -216,10 +216,9 @@
 
     ## Here is your task:
 
-    You are a high school student in the US wondering if getting a 4-year degree at a university will be worth it in the long run.  
-    You want to understand your likelihood of obtaining a higher income after graduation to pay off your student loans.  
-    To do this, you look at US census data, and gather real examples of peoples’ age, number of years of education, and what their income is.  
-    You classify income as high if it exceeds $50,000*.
+    You are a high school student in the US wondering if continuing your education will be worth it in the long run to live a comfortable life 
+    and pay off your student loans.  To start, you look at US census data and gather real examples of peoples’ age, number of years of education, 
+    and what their income is.  You classify income as high if it exceeds $50,000*.
 
     To complete this task, you will use three commonly used classification algorithms:  
 
@@ -230,7 +229,9 @@
       3. Logistic Regression.
 
     Take a look at the data below:
-    ####### *Data is from the 1994 US census bureau database. $50,000 is worth ~$88k in 2020.
+    
+      ####### *Data is from the 1994 US census bureau database. $50,000 is worth ~$88k in 2020.
+      
   [/Step]
   [/Scroller]
 
