@@ -24,7 +24,6 @@
 /]
 
 [section className:'firstSection']
-
   # A Brief History of Classification  
 
   [p className:'introSubtitle']Can computers learn from data?[/p]
@@ -38,53 +37,44 @@
 
   While this may sound complex, we hope to make some machine learning concepts approachable and easy to learn 
   through examples and activities in this article.
-
 [/section]
 
 [section]
-
   [p className:'introSubtitle']Understanding Algorithms[/p]
 
   Think of it this way – as you can learn these concepts through experimenting with examples, computers can do the same!
 
   To grasp how machine learning works, we need to understand [b]algorithms - the method for creating models from data[/b].  
-  In this article, we will show you algorithms that perform classification tasks on a famous machine learning dataset.  
-  Classification in today’s world is responsible for advancements in speech recognition, face detection, handwriting 
-  recognition, and even email spam identification.
-
+  In this article, we will show you popular algorithms that perform classification tasks on a famous machine learning dataset.  
 [/section]
 
 [section]
-
   # Case Study 
 
   [p className:'introSubtitle']Is Income Predictable?[/p]
 
-  [aside]
-    [img src:"static/images/machineLearning.png" /]
-  [/aside]
+  You are a high school student in the US wondering if getting a 4-year degree at a university will be worth it in the long run.  
+  You want to understand your likelihood of obtaining a higher income after graduation to pay off your student loans.  
+  To do this, you look at US census data, and gather real examples of peoples:  
 
-  This question led to the development of machine learning.  In 1959, Arthur Samuel (a pioneer computer scientist) 
-  defined machine learning as “the field of study that [b] gives computers the ability to learn without being explicitly programmed[/b]”.
+  [p className:'numbered-list']
+  1. Age [br/]
+  2. Number of years of education [br/]
+  3. What their income is [br/]
+  [/p]
 
-  While this may sound complex, we hope to make some machine learning concepts approachable and easy to learn 
-  through examples and activities in this article.
+  You classify income as high if it exceeds $50,000 (Data is from the 1994 US census bureau database. $50,000 is worth ~$88k in 2020).
 
-[/section]
-
-[section]
-
-  [p className:'introSubtitle']Exploring the dataset[/p]
-
-  This is the data that we are going to use to train our algorithms. 
-
-  (Explain Training)
-
-  (Have visualizations for different variables of the dataset)
+  Lets take a quick look at the data below: 
 
   [data name:"train" source:"train_data.csv" /]
   [Table data:train defaultPageSize:5/]
+[/section]
 
+[section]
+  [p className:'introSubtitle']Exploring the dataset[/p]
+
+  (Explain the graphs)
 
   [IdyllVegaLite data:train spec:`{
     width: 500,
@@ -100,7 +90,8 @@
      color: {field: "High Income", type: "nominal"},
      opacity: {condition: {selection: "click", value: 1}, value: 0.3},
     }
-}` /]
+  }`
+/]
 
 [var name:"colorBy" value:`{}` /]
   Color by:
@@ -155,12 +146,6 @@
   what machine learning models do! However, now that your model is trained, lets put it to the test
   with 3 mystery people.
 
-[/section]
-
-[section]
-
-  [p className:'introSubtitle']Evaluating Your Model[/p]
-
   [aside]
     [img src:"static/images/mystery-person.png" /]
   [/aside]
@@ -206,22 +191,13 @@
 
 [/section]
 
-[Scroller currentStep: caseStudyStep]
-    [Graphic className:"d3-component-container"]
-      [img src:"static/images/iris.png" /]
-    [/Graphic]
+[section]
 
-  [Step]
-    # Case Study
+  # Machine Learning
 
-    ## Here is your task:
+  [p className:'introSubtitle']Your Mission, Should You Choose to Accept It[/p]
 
-    You are a high school student in the US wondering if getting a 4-year degree at a university will be worth it in the long run.  
-    You want to understand your likelihood of obtaining a higher income after graduation to pay off your student loans.  
-    To do this, you look at US census data, and gather real examples of peoples’ age, number of years of education, and what their income is.  
-    You classify income as high if it exceeds $50,000*.
-
-    To complete this task, you will use three commonly used classification algorithms:  
+    We will now complete the same task with three commonly used classification algorithms:  
 
       1. K Nearest Neighbors (KNN)   
 
@@ -229,29 +205,24 @@
 
       3. Logistic Regression.
 
-    Take a look at the data below:
-    ####### *Data is from the 1994 US census bureau database. $50,000 is worth ~$88k in 2020.
-  [/Step]
-  [/Scroller]
+[/section]
 
-[Scroller currentStep: Overfitting]
-  [Graphic className:"d3-component-container"]
+[section]
+
+  [p className:'introSubtitle']Warning: Overfitting[/p]
+
+  [aside]
     [img src:"static/images/overfitting.png" /]
-  [/Graphic]
+  [/aside]
 
-    
-  [Step]
-    # Warning: Overfitting
+  One thing to pay attention to when using algorithms is overfitting.  
+  Overfitting happens when a model is too complex and starts to classify according 
+  to a random error in the data over the expected relationships between variables.  
+  A model is considered “overfit” when it fits your training data really well, yet performs 
+  poorly on new data. One way to identify an “overfit” is to reserve a portion of your data 
+  set and introduce it after you are finished creating your model to see how it performs.
 
-    One thing to pay attention to when using algorithms is overfitting.  
-    Overfitting happens when a model is too complex and starts to classify according 
-    to a random error in the data over the expected relationships between variables.  
-    A model is considered “overfit” when it fits your training data really well, yet performs 
-    poorly on new data. One way to identify an “overfit” is to reserve a portion of your data 
-    set and introduce it after you are finished creating your model to see how it performs.
-  [/Step]
-
-[/Scroller]
+[/section]
 
 [Scroller currentStep: KNN]
   [Graphic className:"d3-component-container"]
@@ -283,7 +254,7 @@
 
     [img src:"static/images/knn2.png" /]
   [/Step]
-  [/Scroller]
+[/Scroller]
 
 [Scroller currentStep: DecisionTrees]
   [Graphic className:"d3-component-container"]
@@ -298,20 +269,3 @@
   [/Step]
 [/Scroller]
 
-[Scroller currentStep: LogisticRegression]
-  [Graphic className:"d3-component-container"]
-    [img src:"static/images/lr.png" /]
-  [/Graphic]
-  [Step]
-    # Logistic Regression  
-
-    Logistic Regression is a classification algorithm that first finds a linear regression 
-    based on the attributes of the data, and then passes that regression output to a sigmoid 
-    function to convert it to a probability of whether or not the data point is of a certain class.
-  [/Step]
-
-[/Scroller]
-
-[var name:"introStep" value:0 /]
-[Scroller currentStep: introStep]
-[/Scroller]
