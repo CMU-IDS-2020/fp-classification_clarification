@@ -101,126 +101,60 @@
 
 [section]
 
-  [p className:'introSubtitle']Your Algorithm[/p]
+  [p className:'introSubtitle']Evaluating Your Model[/p]
 
-  (Present 3 points of data in the test set - one no money, one yes money, and one on the fringe)
-
-  (Have person guess and explain that this is pretty much what the algorithm is doing)
-
-  (Have visualizations for different variables of the dataset)
-  
-  [button]High Income[/button]
-  [button]Low Income[/button]
+  After exploring the data, we hope that you got a sense of which patterns or variable values are more likely
+  to mean that someone is high income or not. This process was training your own model, and is exactly
+  what machine learning models do! However, now that your model is trained, lets put it to the test
+  with 3 mystery people.
 
 [/section]
 
-[Scroller currentStep: caseStudyStep]
-    [Graphic className:"d3-component-container"]
-      [img src:"static/images/iris.png" /]
-    [/Graphic]
+[section]
 
-  [Step]
-    # Case Study
+  [p className:'introSubtitle']Evaluating Your Model[/p]
 
-    ## Here is your task:
+  [aside]
+    [img src:"static/images/mystery-person.png" /]
+  [/aside]
 
-    You are Edgar Anderson, a world-renowned botanist.  Your favorite flower is the iris, and to understand this enigmatic 
-    flower, you recorded measurements of 50 samples of 3 species of iris flowers, totaling 150 instances.  Your measurements 
-    consist of the length and width of the sepals and petals (note that sepals are leafs that protect petals when they are budding, 
-    and act as the support for the petals once bloomed).  You want to see if you can use pattern recognition to predict the iris 
-    species based on your measurements.
+  [b]Mystery Person #1:[/b] [br/]
+  Age: 57 [br/]
+  Years of Education: 15
 
-    To complete this task, you will use three commonly used classification algorithms:  
+  [var name:"correct1" value:`false` /]
+  [var name:"show1" value:`false` /]
+  [Answer correct:correct1 show:show1 /]
 
-      1. K Nearest Neighbors (KNN)   
+  [div className:'btn-row' onClick:`show1 = true`]
+    [button className:'evaluate-btn' onClick:`correct1 = true`]High Income[/button]
+    [button className:'evaluate-btn' onClick:`correct1 = false`]Low Income[/button]
+  [/div]
 
-      2. Decision Trees  
+  [b]Mystery Person #2:[/b] [br/]
+  Age: 22 [br/]
+  Years of Education: 7
 
-      3. Logistic Regression.
+  [var name:"correct2" value:`false` /]
+  [var name:"show2" value:`false` /]
+  [Answer correct:correct2 show:show2 /]
 
-    Take a look at the data below:
+  [div className:'btn-row' onClick:`show2 = true`]
+    [button className:'evaluate-btn' onClick:`correct2 = false`]High Income[/button]
+    [button className:'evaluate-btn' onClick:`correct2 = true`]Low Income[/button]
+  [/div]
 
-  [/Step]
-  [/Scroller]
+  [b]Mystery Person #3:[/b] [br/]
+  Age: 30 [br/]
+  Years of Education: 10
 
-[Scroller currentStep: Overfitting]
-  [Graphic className:"d3-component-container"]
-    [img src:"static/images/overfitting.png" /]
-  [/Graphic]
+  [var name:"correct3" value:`false` /]
+  [var name:"show3" value:`false` /]
+  [Answer correct:correct3 show:show3 /]
 
-    
-  [Step]
-    # Warning: Overfitting
+  [div className:'btn-row' onClick:`show3 = true`]
+    [button className:'evaluate-btn' onClick:`correct3 = false`]High Income[/button]
+    [button className:'evaluate-btn' onClick:`correct3 = true`]Low Income[/button]
+  [/div]
 
-    One thing to pay attention to when using algorithms is overfitting.  
-    Overfitting happens when a model is too complex and starts to classify according 
-    to a random error in the data over the expected relationships between variables.  
-    A model is considered “overfit” when it fits your training data really well, yet performs 
-    poorly on new data. One way to identify an “overfit” is to reserve a portion of your data 
-    set and introduce it after you are finished creating your model to see how it performs.
-  [/Step]
-
-[/Scroller]
-
-[Scroller currentStep: KNN]
-  [Graphic className:"d3-component-container"]
-    [img src:"static/images/knn.png" /]
-  [/Graphic]
-  [Step]
-    # K Nearest Neighbors (KNN)
-
-    The K Nearest Neighbors (KNN) algorithm classifies data based on data that is most similar.  
-    You will use this algorithm to guess the iris species based on similar known data.  
-
-    We can apply this to the iris dataset, and vary the number of neighbors (K) in our model. 
-    When we do so, we see that our model outputs different accuracy levels for both the training 
-    data and the test data. 
-  [/Step]
-
-  [Step]
-    In this example the the right, our “test point” is the red star in the center. when we set K = 3, we 
-    see that there are two points near it that are class B, and one that is class A. Since class 
-    B is the majority, we label the test point as class B. However, when we set K = 6, 4 of the 
-    nearest neighbors to the test point are in class A, while 2 are in class B. Thus, when K = 6, 
-    we would label our test point as Class A.
-  [/Step]
-
-  [Step]
-    We can apply this to the iris dataset, and vary the number of neighbors (K) in our model. 
-    When we do so, we see that our model outputs different accuracy levels for both the training 
-    data and the test data. 
-
-    [img src:"static/images/knn2.png" /]
-  [/Step]
-  [/Scroller]
-
-[Scroller currentStep: DecisionTrees]
-  [Graphic className:"d3-component-container"]
-    [img src:"static/images/dt.png" /]
-  [/Graphic]
-  [Step]
-    # Decision Trees
-
-    The Decision Tree algorithm splits data according to certain parameters. One can think 
-    of this as having a flow-chart like structure, where each data point goes through the tree 
-    and is subsequently labeled based on the attributes of the data point.  
-  [/Step]
-[/Scroller]
-
-[Scroller currentStep: LogisticRegression]
-  [Graphic className:"d3-component-container"]
-    [img src:"static/images/lr.png" /]
-  [/Graphic]
-  [Step]
-    # Logistic Regression  
-
-    Logistic Regression is a classification algorithm that first finds a linear regression 
-    based on the attributes of the data, and then passes that regression output to a sigmoid 
-    function to convert it to a probability of whether or not the data point is of a certain class.
-  [/Step]
-
-[/Scroller]
-
-[var name:"introStep" value:0 /]
-[Scroller currentStep: introStep]
-[/Scroller]
+[/section]
