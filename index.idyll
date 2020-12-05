@@ -87,13 +87,60 @@
 
 
   [IdyllVegaLite data:train spec:`{
-    width: 300,
-    height: 200,
+    width: 500,
+    height: 250,
+    renderer: 'svg',
+    selection: {
+      click: {type: "multi"} 
+      },
+    mark: "bar",
+    encoding: {
+     y: {field: "High Income"},
+     x: {aggregate: "count", title: "Number of People with High Income"},
+     color: {field: "High Income", type: "nominal"},
+     opacity: {condition: {selection: "click", value: 1}, value: 0.3},
+    }
+}` /]
+
+[var name:"colorBy" value:`{}` /]
+  Color by:
+ [button onClick:`colorBy = {}` ]None[/button]
+ [button onClick:`colorBy = {field: 'High Income', type: 'nominal'}` ]High Income[/button]
+
+  [IdyllVegaLite data:train spec:`{
+    width: 500,
+    height: 250,
+    renderer: 'svg',
+    mark: "bar",
+    encoding: {
+     x: {field: "Age", bin: true},
+     y: {aggregate: "count", title: "Number of People"},
+     color: colorBy
+  }
+  }` /]
+
+  [IdyllVegaLite data:train spec:`{
+    width: 500,
+    height: 250,
+    renderer: 'svg',
+    mark: "bar",
+    encoding: {
+     x: {field: "Years of Education"},
+     y: {aggregate: "count", title: "Number of People"},
+     color: colorBy
+  }
+  }` /]
+
+  [IdyllVegaLite data:train spec:`{
+    width: 500,
+    height: 400,
     renderer: 'svg',
     mark: "circle",
     encoding: {
       x: {field: "Age", type: "quantitative"},
-      y: {field: "Years of Education", type: "quantitative"}
+      y: {field: "Years of Education", type: "quantitative"},
+      color: {field: "High Income", type: "nominal"},
+      tooltip: {field: "High Income", type: "nominal"}
     }
   }` /]
 
@@ -158,3 +205,113 @@
   [/div]
 
 [/section]
+
+[Scroller currentStep: caseStudyStep]
+    [Graphic className:"d3-component-container"]
+      [img src:"static/images/iris.png" /]
+    [/Graphic]
+
+  [Step]
+    # Case Study
+
+    ## Here is your task:
+
+    You are a high school student in the US wondering if getting a 4-year degree at a university will be worth it in the long run.  
+    You want to understand your likelihood of obtaining a higher income after graduation to pay off your student loans.  
+    To do this, you look at US census data, and gather real examples of peoples’ age, number of years of education, and what their income is.  
+    You classify income as high if it exceeds $50,000*.
+
+    To complete this task, you will use three commonly used classification algorithms:  
+
+      1. K Nearest Neighbors (KNN)   
+
+      2. Decision Trees  
+
+      3. Logistic Regression.
+
+    Take a look at the data below:
+    ####### *Data is from the 1994 US census bureau database. $50,000 is worth ~$88k in 2020.
+  [/Step]
+  [/Scroller]
+
+[Scroller currentStep: Overfitting]
+  [Graphic className:"d3-component-container"]
+    [img src:"static/images/overfitting.png" /]
+  [/Graphic]
+
+    
+  [Step]
+    # Warning: Overfitting
+
+    One thing to pay attention to when using algorithms is overfitting.  
+    Overfitting happens when a model is too complex and starts to classify according 
+    to a random error in the data over the expected relationships between variables.  
+    A model is considered “overfit” when it fits your training data really well, yet performs 
+    poorly on new data. One way to identify an “overfit” is to reserve a portion of your data 
+    set and introduce it after you are finished creating your model to see how it performs.
+  [/Step]
+
+[/Scroller]
+
+[Scroller currentStep: KNN]
+  [Graphic className:"d3-component-container"]
+    [img src:"static/images/knn.png" /]
+  [/Graphic]
+  [Step]
+    # K Nearest Neighbors (KNN)
+
+    The K Nearest Neighbors (KNN) algorithm classifies data based on data that is most similar.  
+    You will use this algorithm to guess income based on similar known data.  
+
+    We can apply this to the dataset, and vary the number of neighbors (K) in our model. 
+    When we do so, we see that our model outputs different accuracy levels for both the training 
+    data and the test data. 
+  [/Step]
+
+  [Step]
+    In this example the the right, our “test point” is the red star in the center. when we set K = 3, we 
+    see that there are two points near it that are class B, and one that is class A. Since class 
+    B is the majority, we label the test point as class B. However, when we set K = 6, 4 of the 
+    nearest neighbors to the test point are in class A, while 2 are in class B. Thus, when K = 6, 
+    we would label our test point as Class A.
+  [/Step]
+
+  [Step]
+    We can apply this to the dataset, and vary the number of neighbors (K) in our model. 
+    When we do so, we see that our model outputs different accuracy levels for both the training 
+    data and the test data. 
+
+    [img src:"static/images/knn2.png" /]
+  [/Step]
+  [/Scroller]
+
+[Scroller currentStep: DecisionTrees]
+  [Graphic className:"d3-component-container"]
+    [img src:"static/images/dt.png" /]
+  [/Graphic]
+  [Step]
+    # Decision Trees
+
+    The Decision Tree algorithm splits data according to certain parameters. One can think 
+    of this as having a flow-chart like structure, where each data point goes through the tree 
+    and is subsequently labeled based on the attributes of the data point.  
+  [/Step]
+[/Scroller]
+
+[Scroller currentStep: LogisticRegression]
+  [Graphic className:"d3-component-container"]
+    [img src:"static/images/lr.png" /]
+  [/Graphic]
+  [Step]
+    # Logistic Regression  
+
+    Logistic Regression is a classification algorithm that first finds a linear regression 
+    based on the attributes of the data, and then passes that regression output to a sigmoid 
+    function to convert it to a probability of whether or not the data point is of a certain class.
+  [/Step]
+
+[/Scroller]
+
+[var name:"introStep" value:0 /]
+[Scroller currentStep: introStep]
+[/Scroller]
