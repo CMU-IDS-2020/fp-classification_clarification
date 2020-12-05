@@ -171,11 +171,10 @@
 
     ## Here is your task:
 
-    You are Edgar Anderson, a world-renowned botanist.  Your favorite flower is the iris, and to understand this enigmatic 
-    flower, you recorded measurements of 50 samples of 3 species of iris flowers, totaling 150 instances.  Your measurements 
-    consist of the length and width of the sepals and petals (note that sepals are leafs that protect petals when they are budding, 
-    and act as the support for the petals once bloomed).  You want to see if you can use pattern recognition to predict the iris 
-    species based on your measurements.
+    You are a high school student in the US wondering if getting a 4-year degree at a university will be worth it in the long run.  
+    You want to understand your likelihood of obtaining a higher income after graduation to pay off your student loans.  
+    To do this, you look at US census data, and gather real examples of peoples’ age, number of years of education, and what their income is.  
+    You classify income as high if it exceeds $50,000*.
 
     To complete this task, you will use three commonly used classification algorithms:  
 
@@ -186,7 +185,7 @@
       3. Logistic Regression.
 
     Take a look at the data below:
-
+    ####### *Data is from the 1994 US census bureau database. $50,000 is worth ~$88k in 2020.
   [/Step]
   [/Scroller]
 
@@ -217,9 +216,9 @@
     # K Nearest Neighbors (KNN)
 
     The K Nearest Neighbors (KNN) algorithm classifies data based on data that is most similar.  
-    You will use this algorithm to guess the iris species based on similar known data.  
+    You will use this algorithm to guess income based on similar known data.  
 
-    We can apply this to the iris dataset, and vary the number of neighbors (K) in our model. 
+    We can apply this to the dataset, and vary the number of neighbors (K) in our model. 
     When we do so, we see that our model outputs different accuracy levels for both the training 
     data and the test data. 
   [/Step]
@@ -233,7 +232,7 @@
   [/Step]
 
   [Step]
-    We can apply this to the iris dataset, and vary the number of neighbors (K) in our model. 
+    We can apply this to the dataset, and vary the number of neighbors (K) in our model. 
     When we do so, we see that our model outputs different accuracy levels for both the training 
     data and the test data. 
 
