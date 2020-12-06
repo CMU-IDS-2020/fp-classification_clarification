@@ -126,7 +126,7 @@
     people who have a high income are.
 
     [Conditional if:`colorBy.field`]
-      As you can see, it seems as if [b]older people are more likely to be high income[/b]. This makese 
+      As you can see, it seems as if [b]older people are more likely to be high income[/b]. This makes 
       sense as more experience usually means a better salary!
     [/Conditional]
 
@@ -195,9 +195,9 @@
         [button className:'evaluate-btn' onClick:`correct1 = false`]Low Income[/button]
       [/div]
       [Answer correct:correct1 show:show1]
-        This mystery person is both on the older side and well educated. As you can see from the graph below, he is surrounded
-        by high income individuals (something about pattern recognition).
-
+        This mystery person is both on the older side and well educated. As you can see in the graph below, s/he is surrounded 
+        by high income individuals, so there is a high likelihood that this person follows suit.
+        
         [data name:"mystery_one" source:"mystery1.csv" /]
         [IdyllVegaLite data:mystery_one spec:`{
           renderer: 'svg',
@@ -225,7 +225,8 @@
       [/div]
 
       [Answer correct:correct2 show:show2]
-        (something about how low age and education years means low income based on data we have)
+         This mystery person is both on the younger side and has a less total years of education. As you can see in the graph below, 
+         s/he is surrounded by low income individuals, so there is a high likelihood that this person follows suit.
 
         [data name:"mystery_two" source:"mystery2.csv" /]
         [IdyllVegaLite data:mystery_two spec:`{
@@ -252,7 +253,9 @@
         [button className:'evaluate-btn' onClick:`correct3 = true`]Low Income[/button]
       [/div]
       [Answer correct:correct3 show:show3]
-        (something about how this is a tricky one and patterns aren't always so cut and dry in ML)
+        This mystery person is middle aged, and has a medium number of years of education. 
+        This was a tough question, as this person's age and education years are not clearly on one side of the spectrum of indicators of income. 
+        Sometimes machine learning can lead to a wrong classification as patterns are not always clear-cut.
 
       [data name:"mystery_three" source:"mystery3.csv" /]
 
@@ -280,13 +283,12 @@
 
     [p className:'introSubtitle']Your Mission, Should You Choose to Accept It[/p]
 
-    We will now complete the same task with three commonly used classification algorithms:  
+    We will now complete the same task with two commonly used classification algorithms:  
 
       1. K Nearest Neighbors (KNN)   
 
       2. Decision Trees  
 
-      3. Logistic Regression.
   [/Step]
 
   [Step]
