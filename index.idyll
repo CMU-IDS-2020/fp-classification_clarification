@@ -23,224 +23,231 @@
   color:"#ffffff"
 /]
 
-[section className:'firstSection']
-  # A Brief History of Classification  
+[var name:"intro" value:0 /]
+[Scroller currentStep: intro]
+  [Step]
+    # A Brief History of Classification  
 
-  [p className:'introSubtitle']Can computers learn from data?[/p]
+    [aside]
+      [img src:"static/images/machineLearning.png" /]
+    [/aside]
 
-  [aside]
-    [img src:"static/images/machineLearning.png" /]
-  [/aside]
+    [p className:'introSubtitle']Can computers learn from data?[/p]
 
-  This question led to the development of machine learning.  In 1959, Arthur Samuel (a pioneer computer scientist) 
-  defined machine learning as “the field of study that [b] gives computers the ability to learn without being explicitly programmed[/b]”.
+    This question led to the development of machine learning.  In 1959, Arthur Samuel (a pioneer computer scientist) 
+    defined machine learning as “the field of study that [b] gives computers the ability to learn without being explicitly programmed[/b]”.
 
-  While this may sound complex, we hope to make some machine learning concepts approachable and easy to learn 
-  through examples and activities in this article.
-[/section]
+    While this may sound complex, we hope to make some machine learning concepts approachable and easy to learn 
+    through examples and activities in this article.
+  [/Step]
 
-[section]
-  [p className:'introSubtitle']Understanding Algorithms[/p]
+  [Step]
+    [p className:'introSubtitle']Understanding Algorithms[/p]
 
-  Think of it this way – as you can learn these concepts through experimenting with examples, computers can do the same!
+    Think of it this way – as you can learn these concepts through experimenting with examples, computers can do the same!
 
-  To grasp how machine learning works, we need to understand [b]algorithms - the method for creating models from data[/b].  
-  In this article, we will show you popular algorithms that perform classification tasks on a famous machine learning dataset.  
-[/section]
+    To grasp how machine learning works, we need to understand [b]algorithms - the method for creating models from data[/b].  
+    In this article, we will show you popular algorithms that perform classification tasks on a famous machine learning dataset.  
+  [/Step]
+[/Scroller]
 
-[section]
-  # Case Study 
+[var name:"case" value:0 /]
+[Scroller currentStep: case]
+  [Step]
+    # Case Study 
 
-  [p className:'introSubtitle']Is Income Predictable?[/p]
+    [p className:'introSubtitle']Is Income Predictable?[/p]
 
-  You are starting your senior year of high school, and are trying to decide if you will futher your education beyond graduation.
-  You are wondering if you will see high enough returns in the long run that will allow you to live a comfortable life and pay off student loans.
-  To do this, you look at US census data, and gather real examples of peoples:  
+    You are starting your senior year of high school, and are trying to decide if you will futher your education beyond graduation.
+    You are wondering if you will see high enough returns in the long run that will allow you to live a comfortable life and pay off student loans.
+    To do this, you look at US census data, and gather real examples of peoples:  
 
-  [p className:'numbered-list']
-  1. Age [br/]
-  2. Number of years of education [br/]
-  3. What their income is [br/]
-  [/p]
+    [p className:'numbered-list']
+    1. Age [br/]
+    2. Number of years of education [br/]
+    3. What their income is [br/]
+    [/p]
 
-  You classify income as high if it exceeds $50,000 (Data is from the 1994 US census bureau database. $50,000 is worth ~$88,000 in 2020).
+    You classify income as high if it exceeds $50,000 (Data is from the 1994 US census bureau database. $50,000 is worth ~$88,000 in 2020).
 
-  Lets take a quick look at the data below: 
+    Lets take a quick look at the data below: 
 
-  [data name:"train" source:"train_data.csv" /]
-  [Table data:train defaultPageSize:5/]
-[/section]
+    [data name:"train" source:"train_data.csv" /]
+    [Table data:train defaultPageSize:5/]
+  [/Step]
 
-[section]
-  [p className:'introSubtitle']Exploring the dataset[/p]
+  [Step]
+    [p className:'introSubtitle']Exploring the dataset[/p]
 
-  As you probably realized, [b] looking at raw data isn't very useful [/b]. So now lets look at visualizations to see what
-  more we can learn from this dataset!
+    As you probably realized, [b] looking at raw data isn't very useful [/b]. So now lets look at visualizations to see what
+    more we can learn from this dataset!
 
-  [IdyllVegaLite data:train spec:`{
-    width: 500,
-    height: 250,
-    renderer: 'svg',
-    selection: {
-      click: {type: "multi"} 
-      },
-    mark: "bar",
-    encoding: {
-     y: {field: "High Income"},
-     x: {aggregate: "count", title: "Number of People with High Income"},
-     color: {field: "High Income", type: "nominal"},
-     opacity: {condition: {selection: "click", value: 1}, value: 0.3},
-    }
-  }`/]
-
-  First, let’s look at a simple bar chart looking at the number of people with high income and without. 
-  As you can see here, there is an equal number of people (16) with high and low income in the dataset, 
-  totaling 32 records.
-
-  [aside]
-    Color this chart by:
-    [var name:"colorBy" value:`{}` /]
-    [button onClick:`colorBy = {field: 'High Income', type: 'nominal'}` ]High Income[/button]
-    [button onClick:`colorBy = {}` ]None[/button]
-  [/aside]
-  [IdyllVegaLite data:train spec:`{
-    width: 500,
-    height: 250,
-    renderer: 'svg',
-    mark: "bar",
-    encoding: {
-     x: {field: "Age", bin: true},
-     y: {aggregate: "count", title: "Number of People"},
-     color: colorBy
-  }
-  }` /]
-
-  Next, let’s look at the spread of peoples’ ages. When the high income button is selected, you can see how old 
-  people who have a high income are.
-
-  [Conditional if:`colorBy.field`]
-    As you can see, it seems as if [b]older people are more likely to be high income[/b]. This makese 
-    sense as more experience usually means a better salary!
-  [/Conditional]
-
-  [aside]
-    Color this chart by:
-    [var name:"colorBy2" value:`{}` /]
-    [button onClick:`colorBy2 = {field: 'High Income', type: 'nominal'}` ]High Income[/button]
-    [button onClick:`colorBy2 = {}` ]None[/button]
-  [/aside]
-  [IdyllVegaLite data:train spec:`{
-    width: 500,
-    height: 250,
-    renderer: 'svg',
-    mark: "bar",
-    encoding: {
-     x: {field: "Years of Education"},
-     y: {aggregate: "count", title: "Number of People"},
-     color: colorBy2
-  }
-  }` /]
-
-  This graph shows the amount of people by years of education. When the high income button is selected, you 
-  can see how many years of education people with a high income have.
-
-  [Conditional if:`colorBy2.field`]
-    As you can see from this graph, those with [b]high income tend to be the ones with more years of education[/b].
-    However, we have to not that [b]this is not always the case[/b], as you will see some low income individuals 
-    with 9, 10, 11, and 13 years of experience. 
-  [/Conditional]
-
-
-  [IdyllVegaLite data:train spec:`{
-    width: 500,
-    height: 400,
-    renderer: 'svg',
-    mark: "circle",
-    encoding: {
-      x: {field: "Age", type: "quantitative"},
-      y: {field: "Years of Education", type: "quantitative"},
+    [IdyllVegaLite data:train spec:`{
+      width: 500,
+      height: 250,
+      renderer: 'svg',
+      selection: {
+        click: {type: "multi"} 
+        },
+      mark: "bar",
+      encoding: {
+      y: {field: "High Income"},
+      x: {aggregate: "count", title: "Number of People with High Income"},
       color: {field: "High Income", type: "nominal"},
-      tooltip: {field: "High Income", type: "nominal"}
+      opacity: {condition: {selection: "click", value: 1}, value: 0.3},
+      }
+    }`/]
+
+    First, let’s look at a simple bar chart looking at the number of people with high income and without. 
+    As you can see here, there is an equal number of people (16) with high and low income in the dataset, 
+    totaling 32 records.
+
+    [aside]
+      Color this chart by:
+      [var name:"colorBy" value:`{}` /]
+      [button onClick:`colorBy = {field: 'High Income', type: 'nominal'}` ]High Income[/button]
+      [button onClick:`colorBy = {}` ]None[/button]
+    [/aside]
+    [IdyllVegaLite data:train spec:`{
+      width: 500,
+      height: 250,
+      renderer: 'svg',
+      mark: "bar",
+      encoding: {
+      x: {field: "Age", bin: true},
+      y: {aggregate: "count", title: "Number of People"},
+      color: colorBy
     }
-  }` /]
+    }` /]
 
-Finally, let’s look at the age and education variables together in a scatterplot.
+    Next, let’s look at the spread of peoples’ ages. When the high income button is selected, you can see how old 
+    people who have a high income are.
 
-After looking at the data, do you think more years of schooling truly result in a higher income for you?
+    [Conditional if:`colorBy.field`]
+      As you can see, it seems as if [b]older people are more likely to be high income[/b]. This makese 
+      sense as more experience usually means a better salary!
+    [/Conditional]
 
-[/section]
+    [aside]
+      Color this chart by:
+      [var name:"colorBy2" value:`{}` /]
+      [button onClick:`colorBy2 = {field: 'High Income', type: 'nominal'}` ]High Income[/button]
+      [button onClick:`colorBy2 = {}` ]None[/button]
+    [/aside]
+    [IdyllVegaLite data:train spec:`{
+      width: 500,
+      height: 250,
+      renderer: 'svg',
+      mark: "bar",
+      encoding: {
+      x: {field: "Years of Education"},
+      y: {aggregate: "count", title: "Number of People"},
+      color: colorBy2
+    }
+    }` /]
 
-[section]
+    This graph shows the amount of people by years of education. When the high income button is selected, you 
+    can see how many years of education people with a high income have.
 
-  [aside]
-    [img src:"static/images/mystery-person.png" /]
-  [/aside]
+    [Conditional if:`colorBy2.field`]
+      As you can see from this graph, those with [b]high income tend to be the ones with more years of education[/b].
+      However, we have to not that [b]this is not always the case[/b], as you will see some low income individuals 
+      with 9, 10, 11, and 13 years of experience. 
+    [/Conditional]
 
-  [p className:'introSubtitle']Evaluating Your Model[/p]
-  After exploring the data, we hope that you got a sense of which patterns or variable values are more likely
-  to mean that someone is high income or not. By doing this, [b]you were actually training your own model[/b], which is 
-  almost exactly what machine learning models do! However, now that your model is trained, lets put it to the test
-  and have you predict the income of 3 mystery people.
 
-  [div className:'person-section']
-    [b]Mystery Person #1:[/b] [br/]
-    Age: 57 [br/]
-    Years of Education: 15
+    [IdyllVegaLite data:train spec:`{
+      width: 500,
+      height: 400,
+      renderer: 'svg',
+      mark: "circle",
+      encoding: {
+        x: {field: "Age", type: "quantitative"},
+        y: {field: "Years of Education", type: "quantitative"},
+        color: {field: "High Income", type: "nominal"},
+        tooltip: {field: "High Income", type: "nominal"}
+      }
+    }` /]
 
-    [var name:"correct1" value:`false` /]
-    [var name:"show1" value:`false` /]
-    [Answer correct:correct1 show:show1]
-      This mystery person is both on the older side and well educated. As you can see from the graph below, he is surrounded
-      by high income individuals (something about pattern recognition).
-    [/Answer]
+    Finally, let’s look at the age and education variables together in a scatterplot.
 
-    [div className:'btn-row' onClick:`show1 = true`]
-      [button className:'evaluate-btn' onClick:`correct1 = true`]High Income[/button]
-      [button className:'evaluate-btn' onClick:`correct1 = false`]Low Income[/button]
+    After looking at the data, do you think more years of schooling truly result in a higher income for you?
+  [/Step]
+
+  [Step]
+    [aside]
+      [img src:"static/images/mystery-person.png" /]
+    [/aside]
+
+    [p className:'introSubtitle']Evaluating Your Model[/p]
+    After exploring the data, we hope that you got a sense of which patterns or variable values are more likely
+    to mean that someone is high income or not. By doing this, [b]you were actually training your own model[/b], which is 
+    almost exactly what machine learning models do! However, now that your model is trained, lets put it to the test
+    and have you predict the income of 3 mystery people.
+
+    [div className:'person-section']
+      [b]Mystery Person #1:[/b] [br/]
+      Age: 57 [br/]
+      Years of Education: 15
+
+      [var name:"correct1" value:`false` /]
+      [var name:"show1" value:`false` /]
+      [Answer correct:correct1 show:show1]
+        This mystery person is both on the older side and well educated. As you can see from the graph below, he is surrounded
+        by high income individuals (something about pattern recognition).
+      [/Answer]
+
+      [div className:'btn-row' onClick:`show1 = true`]
+        [button className:'evaluate-btn' onClick:`correct1 = true`]High Income[/button]
+        [button className:'evaluate-btn' onClick:`correct1 = false`]Low Income[/button]
+      [/div]
     [/div]
-  [/div]
 
-  [div className:'person-section']
-    [b]Mystery Person #2:[/b] [br/]
-    Age: 22 [br/]
-    Years of Education: 7
+    [div className:'person-section']
+      [b]Mystery Person #2:[/b] [br/]
+      Age: 22 [br/]
+      Years of Education: 7
 
-    [var name:"correct2" value:`false` /]
-    [var name:"show2" value:`false` /]
-    [Answer correct:correct2 show:show2]
-      (something about how low age and education years means low income based on data we have)
-    [/Answer]
+      [var name:"correct2" value:`false` /]
+      [var name:"show2" value:`false` /]
+      [Answer correct:correct2 show:show2]
+        (something about how low age and education years means low income based on data we have)
+      [/Answer]
 
-    [div className:'btn-row' onClick:`show2 = true`]
-      [button onClick:`correct2 = false`]High Income[/button]
-      [button onClick:`correct2 = true`]Low Income[/button]
+      [div className:'btn-row' onClick:`show2 = true`]
+        [button onClick:`correct2 = false`]High Income[/button]
+        [button onClick:`correct2 = true`]Low Income[/button]
+      [/div]
     [/div]
-  [/div]
 
-  [div className:'person-section']
-    [b]Mystery Person #3:[/b] [br/]
-    Age: 30 [br/]
-    Years of Education: 10
+    [div className:'person-section']
+      [b]Mystery Person #3:[/b] [br/]
+      Age: 30 [br/]
+      Years of Education: 10
 
-    [var name:"correct3" value:`false` /]
-    [var name:"show3" value:`false` /]
-    [Answer correct:correct3 show:show3]
-      (something about how this is a tricky one and patterns aren't always so cut and dry in ML)
-    [/Answer]
+      [var name:"correct3" value:`false` /]
+      [var name:"show3" value:`false` /]
+      [Answer correct:correct3 show:show3]
+        (something about how this is a tricky one and patterns aren't always so cut and dry in ML)
+      [/Answer]
 
-    [div className:'btn-row' onClick:`show3 = true`]
-      [button className:'evaluate-btn' onClick:`correct3 = false`]High Income[/button]
-      [button className:'evaluate-btn' onClick:`correct3 = true`]Low Income[/button]
+      [div className:'btn-row' onClick:`show3 = true`]
+        [button className:'evaluate-btn' onClick:`correct3 = false`]High Income[/button]
+        [button className:'evaluate-btn' onClick:`correct3 = true`]Low Income[/button]
+      [/div]
     [/div]
-  [/div]
+  [/Step]
+[/Scroller]
 
-[/section]
 
-[section]
+[Scroller currentStep: ml]
+  [Graphic className:"d3-component-container"]
+    [img src:"static/images/overfitting.png" /]
+  [/Graphic]
+  [Step]
+    # Machine Learning
 
-  # Machine Learning
-
-  [p className:'introSubtitle']Your Mission, Should You Choose to Accept It[/p]
+    [p className:'introSubtitle']Your Mission, Should You Choose to Accept It[/p]
 
     We will now complete the same task with three commonly used classification algorithms:  
 
@@ -249,32 +256,24 @@ After looking at the data, do you think more years of schooling truly result in 
       2. Decision Trees  
 
       3. Logistic Regression.
+  [/Step]
 
-[/section]
+  [Step]
+    [p className:'introSubtitle']Warning: Overfitting[/p]
 
-[section]
+    One thing to pay attention to when using algorithms is overfitting.  
+    Overfitting happens when a model is too complex and starts to classify according 
+    to a random error in the data over the expected relationships between variables.  
+    A model is considered “overfit” when it fits your training data really well, yet performs 
+    poorly on new data. One way to identify an “overfit” is to reserve a portion of your data 
+    set and introduce it after you are finished creating your model to see how it performs.
+  [/Step]
+[/Scroller]
 
-  [p className:'introSubtitle']Warning: Overfitting[/p]
-
-  [aside]
-    [img src:"static/images/overfitting.png" /]
-  [/aside]
-
-  One thing to pay attention to when using algorithms is overfitting.  
-  Overfitting happens when a model is too complex and starts to classify according 
-  to a random error in the data over the expected relationships between variables.  
-  A model is considered “overfit” when it fits your training data really well, yet performs 
-  poorly on new data. One way to identify an “overfit” is to reserve a portion of your data 
-  set and introduce it after you are finished creating your model to see how it performs.
-
-[/section]
-
-[Knn /]
-
-[Scroller currentStep: KNN]
-  [Graphic className:"d3-component-container"]
-    [img src:"static/images/knn.png" /]
-  [/Graphic]
+[Scroller currentStep: knn]
+  // [Graphic className:"d3-component-container"]
+  //   [img src:"static/images/knn.png" /]
+  // [/Graphic]
   [Step]
     # K Nearest Neighbors (KNN)
 
@@ -301,18 +300,9 @@ After looking at the data, do you think more years of schooling truly result in 
 
     [img src:"static/images/knn2.png" /]
   [/Step]
-[/Scroller]
 
-[Scroller currentStep: DecisionTrees]
-  [Graphic className:"d3-component-container"]
-    [img src:"static/images/dt.png" /]
-  [/Graphic]
   [Step]
-    # Decision Trees
-
-    The Decision Tree algorithm splits data according to certain parameters. One can think 
-    of this as having a flow-chart like structure, where each data point goes through the tree 
-    and is subsequently labeled based on the attributes of the data point.  
+    [Knn /]
+    (text explaining this)
   [/Step]
 [/Scroller]
-

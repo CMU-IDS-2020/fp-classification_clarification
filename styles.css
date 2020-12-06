@@ -9,7 +9,7 @@
 }
 
 .idyll-scroll .idyll-text-container {
-  max-width: 50vw;
+  max-width: 70vw;
 }
 .idyll-scroll-text .idyll-step {
   max-width: 45vw;
@@ -34,8 +34,7 @@
   }
 }
 
-section {
-  padding: 30px 10px;
+.idyll-step {
   font-size: 1.2em;
   margin: 50vh 0;
 }
@@ -126,4 +125,26 @@ canvas {
   font-weight: bold;
   color: red;
   margin-bottom: 10px;
+}
+
+.idyll-scroll {
+  margin-top: 0;
+  pointer-events: none;
+}
+
+.idyll-scroll-text {
+  pointer-events: all;
+}
+
+.idyll-scroll-text:first-of-type {
+  padding-top: 15vh;
+}
+
+.idyll-scroll-text .idyll-step:first-of-type {
+  margin-bottom: 25vh;
+}
+
+.idyll-scroll-text .idyll-step {
+  margin-top: 0;
+  background: none;
 }
