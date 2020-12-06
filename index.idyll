@@ -29,7 +29,7 @@
     # A Brief History of Classification  
 
     [aside]
-      [img src:"static/images/machineLearning.png" /]
+      [img src:"static/images/machine_learning_cartoon.png" /]
     [/aside]
 
     [p className:'introSubtitle']Can computers learn from data?[/p]
@@ -44,6 +44,10 @@
   [Step]
     [p className:'introSubtitle']Understanding Algorithms[/p]
 
+    [aside]
+      [img src:"static/images/ml_books.png" /]
+    [/aside]
+    
     Think of it this way – as you can learn these concepts through experimenting with examples, computers can do the same!
 
     To grasp how machine learning works, we need to understand [b]algorithms - the method for creating models from data[/b].  
@@ -58,6 +62,10 @@
 
     [p className:'introSubtitle']Is Income Predictable?[/p]
 
+    [aside]
+      [img src:"static/images/students.png" /]
+    [/aside]
+    
     You are starting your senior year of high school, and are trying to decide if you will futher your education beyond graduation.
     You are wondering if you will see high enough returns in the long run that will allow you to live a comfortable life and pay off student loans.
     To do this, you look at US census data, and gather real examples of peoples:  
@@ -259,6 +267,7 @@
   [/Step]
 
   [Step]
+      [img src:"static/images/warning3.gif" /]
     [p className:'introSubtitle']Warning: Overfitting[/p]
 
     One thing to pay attention to when using algorithms is overfitting.  
@@ -267,6 +276,7 @@
     A model is considered “overfit” when it fits your training data really well, yet performs 
     poorly on new data. One way to identify an “overfit” is to reserve a portion of your data 
     set and introduce it after you are finished creating your model to see how it performs.
+      [img src:"static/images/under_over.png" /]
   [/Step]
 [/Scroller]
 
