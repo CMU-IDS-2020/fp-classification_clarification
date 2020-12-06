@@ -304,9 +304,19 @@
 [/Scroller]
 
 [Scroller currentStep: knn]
-  // [Graphic className:"d3-component-container"]
-  //   [img src:"static/images/knn.png" /]
-  // [/Graphic]
+
+  [Graphic className:"d3-component-container"]
+    
+    [Conditional if:`knn_k === 3`]
+      [img src:"static/images/knn3.png" /]
+    [/Conditional]
+
+    [Conditional if:`knn_k === 6`]
+      [img src:"static/images/knn6.png" /]
+    [/Conditional]
+
+  [/Graphic]
+
   [Step]
     # K Nearest Neighbors (KNN)
 
@@ -319,11 +329,25 @@
   [/Step]
 
   [Step]
-    In this example the the right, our “test point” is the red star in the center. when we set K = 3, we 
-    see that there are two points near it that are class B, and one that is class A. Since class 
-    B is the majority, we label the test point as class B. However, when we set K = 6, 4 of the 
-    nearest neighbors to the test point are in class A, while 2 are in class B. Thus, when K = 6, 
-    we would label our test point as Class A.
+    In this example the the right, our “test point” is the red point. Click on the buttons to see how different values of k can lead to different classifications.
+
+    [var name:"knn_k" value:3 /]
+
+    [div className:'btn-row']
+      [button onClick:`knn_k = 3`]k = 3[/button]
+      [button onClick:`knn_k = 6`]k = 6[/button]
+    [/div]
+    
+    [Conditional if:`knn_k === 3`]
+    When we set K = 3, we see that there are two points near it that are blue, and one that is black.  
+    Since we would classify based on the majority, we would classify our test point as blue.
+    [/Conditional]
+
+    [Conditional if:`knn_k === 6`]
+    However, when we set K = 6, four of the nearest neighbors are black, while only two are blue. 
+    Thus, when K = 6,  we would label our test point as black.
+    [/Conditional]
+
   [/Step]
 
   [Step]
@@ -350,4 +374,5 @@
     [br/]
     (text explaining this)
   [/Step]
+
 [/Scroller]
