@@ -5,7 +5,7 @@
   title:"Machine Learning Classification"
   authors:`[{
     name: "Laura Howard",
-    link: "https://twitter.com/mathisonian"
+    link: "https://www.linkedin.com/in/laura-m-howard/"
   }, {
     name: "Christian Deverall",
     link: "https://github.com/kalealex"
@@ -29,7 +29,7 @@
   [p className:'introSubtitle']Can computers learn from data?[/p]
 
   [aside]
-    [img src:"static/images/machineLearning.png" /]
+    [img src:"static/images/machine_learning_cartoon.png" /]
   [/aside]
 
   This question led to the development of machine learning.  In 1959, Arthur Samuel (a pioneer computer scientist) 
@@ -42,6 +42,10 @@
 [section]
   [p className:'introSubtitle']Understanding Algorithms[/p]
 
+  [aside]
+    [img src:"static/images/ml_books.png" /]
+  [/aside]
+  
   Think of it this way – as you can learn these concepts through experimenting with examples, computers can do the same!
 
   To grasp how machine learning works, we need to understand [b]algorithms - the method for creating models from data[/b].  
@@ -53,6 +57,10 @@
 
   [p className:'introSubtitle']Is Income Predictable?[/p]
 
+  [aside]
+    [img src:"static/images/students.png" /]
+  [/aside]
+  
   You are starting your senior year of high school, and are trying to decide if you will futher your education beyond graduation.
   You are wondering if you will see high enough returns in the long run that will allow you to live a comfortable life and pay off student loans.
   To do this, you look at US census data, and gather real examples of peoples:  
