@@ -264,16 +264,14 @@ After looking at the data, do you think more years of schooling truly result in 
 
   [p className:'introSubtitle']Warning: Overfitting[/p]
 
-  [aside]
-    [img src:"static/images/overfitting.png" /]
-  [/aside]
-
   One thing to pay attention to when using algorithms is overfitting.  
   Overfitting happens when a model is too complex and starts to classify according 
   to a random error in the data over the expected relationships between variables.  
   A model is considered “overfit” when it fits your training data really well, yet performs 
   poorly on new data. One way to identify an “overfit” is to reserve a portion of your data 
   set and introduce it after you are finished creating your model to see how it performs.
+ 
+    [img src:"static/images/under_over.png" /]
 
 [/section]
 
