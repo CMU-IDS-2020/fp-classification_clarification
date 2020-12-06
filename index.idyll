@@ -16,7 +16,7 @@
   },
   {
     name: "Juliette Wong",
-    link: "https://github.com/kalealex"
+    link: "https://www.linkedin.com/in/juliettenwong/"
   }]`
   date:`(new Date()).toDateString()`
   background:"#222222"
@@ -81,7 +81,7 @@
     Lets take a quick look at the data below: 
 
     [data name:"train" source:"train_data.csv" /]
-    [Table data:train defaultPageSize:5/]
+    [Table data:train defaultPageSize:8/]
   [/Step]
 
   [Step]
@@ -91,18 +91,14 @@
     more we can learn from this dataset!
 
     [IdyllVegaLite data:train spec:`{
-      width: 500,
-      height: 250,
       renderer: 'svg',
-      selection: {
-        click: {type: "multi"} 
-        },
+      //selection: {click: {type: "multi"} },
       mark: "bar",
       encoding: {
       y: {field: "High Income"},
       x: {aggregate: "count", title: "Number of People with High Income"},
       color: {field: "High Income", type: "nominal"},
-      opacity: {condition: {selection: "click", value: 1}, value: 0.3},
+      //opacity: {condition: {selection: "click", value: 1}, value: 0.3},
       }
     }`/]
 
@@ -117,8 +113,6 @@
       [button onClick:`colorBy = {}` ]None[/button]
     [/aside]
     [IdyllVegaLite data:train spec:`{
-      width: 500,
-      height: 250,
       renderer: 'svg',
       mark: "bar",
       encoding: {
@@ -143,8 +137,6 @@
       [button onClick:`colorBy2 = {}` ]None[/button]
     [/aside]
     [IdyllVegaLite data:train spec:`{
-      width: 500,
-      height: 250,
       renderer: 'svg',
       mark: "bar",
       encoding: {
@@ -165,8 +157,6 @@
 
 
     [IdyllVegaLite data:train spec:`{
-      width: 500,
-      height: 400,
       renderer: 'svg',
       mark: "circle",
       encoding: {
@@ -203,6 +193,18 @@
       [Answer correct:correct1 show:show1]
         This mystery person is both on the older side and well educated. As you can see from the graph below, he is surrounded
         by high income individuals (something about pattern recognition).
+
+      [data name:"mystery_one" source:"mystery1.csv" /]
+
+      [IdyllVegaLite data:mystery_one spec:`{
+        renderer: 'svg',
+        mark: "circle",
+        encoding: {
+          x: {field: "Age", type: "quantitative"},
+          y: {field: "Years of Education", type: "quantitative"},
+          color: {field: "High Income", type: "nominal"},
+        }
+      }` /]
       [/Answer]
 
       [div className:'btn-row' onClick:`show1 = true`]
@@ -220,6 +222,18 @@
       [var name:"show2" value:`false` /]
       [Answer correct:correct2 show:show2]
         (something about how low age and education years means low income based on data we have)
+
+      [data name:"mystery_two" source:"mystery2.csv" /]
+
+      [IdyllVegaLite data:mystery_two spec:`{
+        renderer: 'svg',
+        mark: "circle",
+        encoding: {
+          x: {field: "Age", type: "quantitative"},
+          y: {field: "Years of Education", type: "quantitative"},
+          color: {field: "High Income", type: "nominal"},
+        }
+      }` /]
       [/Answer]
 
       [div className:'btn-row' onClick:`show2 = true`]
@@ -237,6 +251,18 @@
       [var name:"show3" value:`false` /]
       [Answer correct:correct3 show:show3]
         (something about how this is a tricky one and patterns aren't always so cut and dry in ML)
+
+      [data name:"mystery_three" source:"mystery3.csv" /]
+
+      [IdyllVegaLite data:mystery_three spec:`{
+        renderer: 'svg',
+        mark: "circle",
+        encoding: {
+          x: {field: "Age", type: "quantitative"},
+          y: {field: "Years of Education", type: "quantitative"},
+          color: {field: "High Income", type: "nominal"},
+        }
+      }` /]
       [/Answer]
 
       [div className:'btn-row' onClick:`show3 = true`]
@@ -308,7 +334,18 @@
     When we do so, we see that our model outputs different accuracy levels for both the training 
     data and the test data. 
 
-    [img src:"static/images/knn2.png" /]
+    [data name:"knn_accuracy" source:"knn.csv" /]
+
+    [IdyllVegaLite data:knn_accuracy spec:`{
+      renderer: 'svg',
+      mark: "line",
+      encoding: {
+        x: {field: "k", type: "quantitative"},
+        y: {field: "accuracy", type: "quantitative"},
+        color: {field: "type", type: "nominal"}
+      }
+    }` /]
+
   [/Step]
 
   [Step]
