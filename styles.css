@@ -77,16 +77,16 @@ section h1 {
 
 .btn-row {
   display: flex;
+  margin-top: 20px;
 }
 
-.evaluate-btn {
+button {
   background: white;
   color: black;
   border-radius: 5px;
   border: solid 3px black;
   padding: 5px 10px;
   cursor: pointer;
-  margin: 10px;
 }
 
 .numbered-list {
@@ -102,4 +102,28 @@ section h1 {
 
 .person-section {
   margin: 50px 0 50px 0;
+}
+
+canvas {
+  margin-top: 40px;
+}
+
+.aside {
+  text-align: center;
+}
+
+.correct {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: green;
+  margin-bottom: 10px;
+}
+
+.wrong {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 10px;
 }

@@ -74,6 +74,9 @@
 [section]
   [p className:'introSubtitle']Exploring the dataset[/p]
 
+  As you probably realized, [b] looking at raw data isn't very useful [/b]. So now lets look at visualizations to see what
+  more we can learn from this dataset!
+
   [IdyllVegaLite data:train spec:`{
     width: 500,
     height: 250,
@@ -88,16 +91,18 @@
      color: {field: "High Income", type: "nominal"},
      opacity: {condition: {selection: "click", value: 1}, value: 0.3},
     }
-  }`
-/]
+  }`/]
 
-First, let’s look at a simple bar chart looking at the number of people with high income and without. As you can see here, there is an equal number of people (16) with high and low income in the dataset, totaling 32 records.
+  First, let’s look at a simple bar chart looking at the number of people with high income and without. 
+  As you can see here, there is an equal number of people (16) with high and low income in the dataset, 
+  totaling 32 records.
 
-[var name:"colorBy" value:`{}` /]
-  Color by:
- [button onClick:`colorBy = {}` ]None[/button]
- [button onClick:`colorBy = {field: 'High Income', type: 'nominal'}` ]High Income[/button]
-
+  [aside]
+    Color this chart by:
+    [var name:"colorBy" value:`{}` /]
+    [button onClick:`colorBy = {field: 'High Income', type: 'nominal'}` ]High Income[/button]
+    [button onClick:`colorBy = {}` ]None[/button]
+  [/aside]
   [IdyllVegaLite data:train spec:`{
     width: 500,
     height: 250,
@@ -110,8 +115,20 @@ First, let’s look at a simple bar chart looking at the number of people with h
   }
   }` /]
 
-Next, let’s look at the spread of peoples’ ages. When the high income button is selected, you can see how old people who have a high income are.
+  Next, let’s look at the spread of peoples’ ages. When the high income button is selected, you can see how old 
+  people who have a high income are.
 
+  [Conditional if:`colorBy.field`]
+    As you can see, it seems as if [b]older people are more likely to be high income[/b]. This makese 
+    sense as more experience usually means a better salary!
+  [/Conditional]
+
+  [aside]
+    Color this chart by:
+    [var name:"colorBy2" value:`{}` /]
+    [button onClick:`colorBy2 = {field: 'High Income', type: 'nominal'}` ]High Income[/button]
+    [button onClick:`colorBy2 = {}` ]None[/button]
+  [/aside]
   [IdyllVegaLite data:train spec:`{
     width: 500,
     height: 250,
@@ -120,11 +137,19 @@ Next, let’s look at the spread of peoples’ ages. When the high income button
     encoding: {
      x: {field: "Years of Education"},
      y: {aggregate: "count", title: "Number of People"},
-     color: colorBy
+     color: colorBy2
   }
   }` /]
 
-This graph shows the amount of people by years of education.  When the high income button is selected, you can see how many years of education people with a high income have.
+  This graph shows the amount of people by years of education. When the high income button is selected, you 
+  can see how many years of education people with a high income have.
+
+  [Conditional if:`colorBy2.field`]
+    As you can see from this graph, those with [b]high income tend to be the ones with more years of education[/b].
+    However, we have to not that [b]this is not always the case[/b], as you will see some low income individuals 
+    with 9, 10, 11, and 13 years of experience. 
+  [/Conditional]
+
 
   [IdyllVegaLite data:train spec:`{
     width: 500,
@@ -141,7 +166,7 @@ This graph shows the amount of people by years of education.  When the high inco
 
 Finally, let’s look at the age and education variables together in a scatterplot.
 
-So, will more years of schooling truly result in a higher income for you?
+After looking at the data, do you think more years of schooling truly result in a higher income for you?
 
 [/section]
 
@@ -153,7 +178,7 @@ So, will more years of schooling truly result in a higher income for you?
 
   [p className:'introSubtitle']Evaluating Your Model[/p]
   After exploring the data, we hope that you got a sense of which patterns or variable values are more likely
-  to mean that someone is high income or not. By doing this, you were actually training your own model, which is 
+  to mean that someone is high income or not. By doing this, [b]you were actually training your own model[/b], which is 
   almost exactly what machine learning models do! However, now that your model is trained, lets put it to the test
   and have you predict the income of 3 mystery people.
 
@@ -164,7 +189,10 @@ So, will more years of schooling truly result in a higher income for you?
 
     [var name:"correct1" value:`false` /]
     [var name:"show1" value:`false` /]
-    [Answer correct:correct1 show:show1 /]
+    [Answer correct:correct1 show:show1]
+      This mystery person is both on the older side and well educated. As you can see from the graph below, he is surrounded
+      by high income individuals (something about pattern recognition).
+    [/Answer]
 
     [div className:'btn-row' onClick:`show1 = true`]
       [button className:'evaluate-btn' onClick:`correct1 = true`]High Income[/button]
@@ -179,11 +207,13 @@ So, will more years of schooling truly result in a higher income for you?
 
     [var name:"correct2" value:`false` /]
     [var name:"show2" value:`false` /]
-    [Answer correct:correct2 show:show2 /]
+    [Answer correct:correct2 show:show2]
+      (something about how low age and education years means low income based on data we have)
+    [/Answer]
 
     [div className:'btn-row' onClick:`show2 = true`]
-      [button className:'evaluate-btn' onClick:`correct2 = false`]High Income[/button]
-      [button className:'evaluate-btn' onClick:`correct2 = true`]Low Income[/button]
+      [button onClick:`correct2 = false`]High Income[/button]
+      [button onClick:`correct2 = true`]Low Income[/button]
     [/div]
   [/div]
 
@@ -194,7 +224,9 @@ So, will more years of schooling truly result in a higher income for you?
 
     [var name:"correct3" value:`false` /]
     [var name:"show3" value:`false` /]
-    [Answer correct:correct3 show:show3 /]
+    [Answer correct:correct3 show:show3]
+      (something about how this is a tricky one and patterns aren't always so cut and dry in ML)
+    [/Answer]
 
     [div className:'btn-row' onClick:`show3 = true`]
       [button className:'evaluate-btn' onClick:`correct3 = false`]High Income[/button]
