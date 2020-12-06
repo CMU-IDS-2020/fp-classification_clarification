@@ -1,0 +1,48 @@
+{
+    "column": "Age",
+    "value": 40,
+    "children": [
+        {
+            "column": "Years of Education",
+            "value": 10,
+            "children": [
+                {
+                    "column": "Age",
+                    "value": 25,
+                    "children": [
+                        {
+                            "column": "None"
+                        },
+                        {
+                            "column": "Years of Education",
+                            "value": 8,
+                            "children": [
+                                {
+                                    "column": "None"
+                                },
+                                {
+                                    "column": "None"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "column": "None"
+                }
+            ]
+        },
+        {
+            "column": "Years of Education",
+            "value": 10,
+            "children": [
+                {
+                    "column": "None"
+                },
+                {
+                    "column": "None"
+                }
+            ]
+        }
+    ]
+}

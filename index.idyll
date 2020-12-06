@@ -190,27 +190,26 @@
 
       [var name:"correct1" value:`false` /]
       [var name:"show1" value:`false` /]
-      [Answer correct:correct1 show:show1]
-        This mystery person is both on the older side and well educated. As you can see from the graph below, he is surrounded
-        by high income individuals (something about pattern recognition).
-
-      [data name:"mystery_one" source:"mystery1.csv" /]
-
-      [IdyllVegaLite data:mystery_one spec:`{
-        renderer: 'svg',
-        mark: "circle",
-        encoding: {
-          x: {field: "Age", type: "quantitative"},
-          y: {field: "Years of Education", type: "quantitative"},
-          color: {field: "High Income", type: "nominal"},
-        }
-      }` /]
-      [/Answer]
-
       [div className:'btn-row' onClick:`show1 = true`]
         [button className:'evaluate-btn' onClick:`correct1 = true`]High Income[/button]
         [button className:'evaluate-btn' onClick:`correct1 = false`]Low Income[/button]
       [/div]
+      [Answer correct:correct1 show:show1]
+        This mystery person is both on the older side and well educated. As you can see from the graph below, he is surrounded
+        by high income individuals (something about pattern recognition).
+
+        [data name:"mystery_one" source:"mystery1.csv" /]
+        [IdyllVegaLite data:mystery_one spec:`{
+          renderer: 'svg',
+          mark: "circle",
+          encoding: {
+            x: {field: "Age", type: "quantitative"},
+            y: {field: "Years of Education", type: "quantitative"},
+            color: {field: "High Income", type: "nominal"},
+          }
+        }` /]
+      [/Answer]
+
     [/div]
 
     [div className:'person-section']
@@ -220,26 +219,25 @@
 
       [var name:"correct2" value:`false` /]
       [var name:"show2" value:`false` /]
-      [Answer correct:correct2 show:show2]
-        (something about how low age and education years means low income based on data we have)
-
-      [data name:"mystery_two" source:"mystery2.csv" /]
-
-      [IdyllVegaLite data:mystery_two spec:`{
-        renderer: 'svg',
-        mark: "circle",
-        encoding: {
-          x: {field: "Age", type: "quantitative"},
-          y: {field: "Years of Education", type: "quantitative"},
-          color: {field: "High Income", type: "nominal"},
-        }
-      }` /]
-      [/Answer]
-
       [div className:'btn-row' onClick:`show2 = true`]
         [button onClick:`correct2 = false`]High Income[/button]
         [button onClick:`correct2 = true`]Low Income[/button]
       [/div]
+
+      [Answer correct:correct2 show:show2]
+        (something about how low age and education years means low income based on data we have)
+
+        [data name:"mystery_two" source:"mystery2.csv" /]
+        [IdyllVegaLite data:mystery_two spec:`{
+          renderer: 'svg',
+          mark: "circle",
+          encoding: {
+            x: {field: "Age", type: "quantitative"},
+            y: {field: "Years of Education", type: "quantitative"},
+            color: {field: "High Income", type: "nominal"},
+          }
+        }` /]
+      [/Answer]
     [/div]
 
     [div className:'person-section']
@@ -249,6 +247,10 @@
 
       [var name:"correct3" value:`false` /]
       [var name:"show3" value:`false` /]
+      [div className:'btn-row' onClick:`show3 = true`]
+        [button className:'evaluate-btn' onClick:`correct3 = false`]High Income[/button]
+        [button className:'evaluate-btn' onClick:`correct3 = true`]Low Income[/button]
+      [/div]
       [Answer correct:correct3 show:show3]
         (something about how this is a tricky one and patterns aren't always so cut and dry in ML)
 
@@ -264,11 +266,6 @@
         }
       }` /]
       [/Answer]
-
-      [div className:'btn-row' onClick:`show3 = true`]
-        [button className:'evaluate-btn' onClick:`correct3 = false`]High Income[/button]
-        [button className:'evaluate-btn' onClick:`correct3 = true`]Low Income[/button]
-      [/div]
     [/div]
   [/Step]
 [/Scroller]
@@ -350,6 +347,7 @@
 
   [Step]
     [Knn /]
+    [br/]
     (text explaining this)
   [/Step]
 [/Scroller]
