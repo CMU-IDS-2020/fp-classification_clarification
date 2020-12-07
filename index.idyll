@@ -378,3 +378,18 @@
   [/Step]
 
 [/Scroller]
+
+[Scroller currentStep: knn]
+  [Step]
+    # Decision Trees
+
+    (explain decision trees)
+  [/Step]
+
+  [Step]
+    [BoundariesChart /]
+    [br/]
+    (text explaining this)
+  [/Step]
+[/Scroller]
+

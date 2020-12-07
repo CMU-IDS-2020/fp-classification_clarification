@@ -7,7 +7,9 @@
     max-height: 200px;
   }
 }
-
+.vega-embed {
+  display: block;
+}
 .idyll-scroll .idyll-text-container {
   max-width: 70vw;
 }
@@ -33,6 +35,9 @@
     margin-left: 65vw;
   }
 }
+.aside {
+  right: calc((20vw + 350px + 150px) / -2);
+}
 
 .idyll-step {
   font-size: 1.2em;
@@ -43,7 +48,7 @@
   margin: 20vh 0;
 }
 
-section h1 {
+.idyll-step h1 {
   text-align: center;
   margin-bottom: 50px;
   margin-top: 0;
