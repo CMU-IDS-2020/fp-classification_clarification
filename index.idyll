@@ -414,11 +414,11 @@
   [Step]
     Before understanding logistic regression, one must first understand linear regression. Suppose we have a set
     of points that are in tuples (x, y). We can visualize this set of points in a scatterplot, such as one right here: (fix this iframe sorry nathan)
-      [Iframe /]
+      [Iframe iframe: "<iframe src="https://www.desmos.com/calculator/plfizuubiv?embed" width="100%" height="400px" style="border: 1px solid #ccc" frameborder=0></iframe>"/]
 
     What if we wanted to fit a line that best fits this data? Our data is noisy, so it won’t fit a line perfectly, 
     but one can manually try to do so. 
-      [Iframe /] 
+      [Iframe iframe: "<iframe src="https://www.desmos.com/calculator/plfizuubiv?embed" width="100%" height="400px" style="border: 1px solid #ccc" frameborder=0></iframe>"/]
 
     Alternatively, one can use a method called “ordinary least squares”, or OLS for short. 
     Since a line can be written as a function, any line can be used to create estimates of an output given 
