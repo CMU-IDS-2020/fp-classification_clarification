@@ -23,9 +23,7 @@
   color:"#ffffff"
 /]
 
-[Iframe /]
 
-[var name:"intro" value:0 /]
 [Scroller currentStep: intro]
   [Step]
     # A Brief History of Classification  
@@ -381,10 +379,9 @@
 
 [/Scroller]
 
-[Scroller currentStep: knn]
+[Scroller currentStep: dt]
   [Step]
     # Decision Trees
-
     (explain decision trees)
   [/Step]
 
@@ -395,3 +392,70 @@
   [/Step]
 [/Scroller]
 
+[Scroller currentStep: logreg]
+  [Graphic className:"d3-component-container"]
+    [Chart equation:` (t) => 1/(1+ Math.exp(-t))` domain:`[-20, 20]` range:`[-0.5, 1.5]`samplePoints:1000 /]
+    [Equation]
+      f(x)=\frac{1}{1+e^{-x}}
+    [/Equation]
+  [/Graphic]
+  [Step]
+    # Logistic Regression
+
+    Contrary to its name, logistic regression is not a regression algorithm, but a classification algorithm. 
+    It does so by performing a linear regression based on the attributes, and then uses that regression to 
+    calculate the probability of whether or not the data point is in a certain class.
+  [/Step]
+
+  [Step]
+    Before understanding logistic regression, one must first understand linear regression. Suppose we have a set
+    of points that are in tuples (x, y). We can visualize this set of points in a scatterplot, such as one right here: (fix this iframe sorry nathan)
+      [Iframe /]
+
+    What if we wanted to fit a line that best fits this data? Our data is noisy, so it won’t fit a line perfectly, 
+    but one can manually try to do so. 
+      [Iframe /] 
+
+    Alternatively, one can use a method called “ordinary least squares”, or OLS for short. 
+    Since a line can be written as a function, any line can be used to create estimates of an output given 
+    input values. Each point has a corresponding residual, which is computed by taking the difference between 
+    the actual value and our estimated value. OLS is the method that calculates the slope and intercept of the 
+    line that minimizes the sum of the squares of these residual values: [br/][br/]
+      [Equation]
+        min_{m, b} \sum_{x_i \in points} (y_i - (m\cdot x_i - b))^2
+      [/Equation]
+
+    For our example, our ordinary least-squares regression line is: 
+    [Equation]
+      Y=0.5x + 3
+    [/Equation]
+  [/Step]
+
+  [Step]
+    Now that we know the basics of linear regression, we can move on to logistic regression! While explaining 
+    the theory behind logistic regression is beyond the scope of this article, we will explain in the overall concept of
+    how to perform logistic regression. 
+
+    For a given data point, we can find the OLS estimate using our least-squares regression line equation. 
+    This OLS output will be the x-value of the datapoint. The y-value of the datapoint is the label, which, 
+    in our original example, is whether or not an individual has a high income (we can set y = 1 if the data point 
+    has a high income, and y = 0 otherwise). For our dataset, we get the regression line of (ADD REGRESSION LINE HERE). 
+    We can then plot the points as such: 
+  [/Step]
+
+  [Step]
+    Next, we fit a sigmoid function on our linear regression line. The sigmoid function is defined as: 
+      [Equation]
+        f(x) =\frac{1}{1+e^{-x}}
+      [/Equation] 
+    . The sigmoid function is plotted on the right.
+
+    The sigmoid function applied to a linear regression model provides the probability that we classify the output 
+    as a 1 (having high income) given the linear regression output, or P(y=1 | x). The mathematical intuition behind 
+    this is also beyond the scope of the article, but these probabilities are then used to classify unknown points.
+    For example, if we set our threshold as 0.5, we would assign a label of 1 (having high income) if 
+    P(y=1 | x) > 0.5, and 0 (having low income) otherwise. Using our (x, y) pairs that we defined above, we can fit 
+    a sigmoid function to our dataset as such: 
+
+  [/Step]
+[/Scroller]
