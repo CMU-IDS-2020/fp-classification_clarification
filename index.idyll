@@ -23,6 +23,8 @@
   color:"#ffffff"
 /]
 
+[Iframe /]
+
 [var name:"intro" value:0 /]
 [Scroller currentStep: intro]
   [Step]
