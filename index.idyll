@@ -275,9 +275,6 @@
 
 
 [Scroller currentStep: ml]
-  [Graphic className:"d3-component-container"]
-    [img src:"static/images/overfitting.png" /]
-  [/Graphic]
   [Step]
     # Machine Learning
 
@@ -374,7 +371,14 @@
   [Step]
     [Knn /]
     [br/]
-    (text explaining this)
+    Here, you can play around with the number of neighbors (k) to see what our algorithm would predict 
+    using a test point with an age of 30 and 10 years of education.  
+    If you remember from above, this test point is classified as low income, but as you can see, when K is 2 or less, 
+    the KNN algorithm would actually predict high income. This is because the nearest neighbor is classified as high income. 
+
+    Having K = 2 presents an interesting problem as the neighbors are classified differently. While there are many approches to break
+    a tie, we are using the "nearest" approach, which uses the calss with the nearest neighbor. There is also the "random" approach, which
+    selects the class of a random tie breaker.
   [/Step]
 
 [/Scroller]
