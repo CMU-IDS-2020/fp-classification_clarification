@@ -1,6 +1,6 @@
 # CMU Interactive Data Science Final Project
 
-* **Online URL**: TODO
+* **Online URL**: https://cmu-ids-2020.github.io/fp-classification_clarification/
 * **Team members**:
   * Contact person: jnwong@andrew.cmu.edu
   * cdeveral@andrew.cmu.edu
