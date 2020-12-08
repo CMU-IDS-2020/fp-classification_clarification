@@ -92,13 +92,11 @@
 
     [IdyllVegaLite data:train spec:`{
       renderer: 'svg',
-      //selection: {click: {type: "multi"} },
       mark: "bar",
       encoding: {
       y: {field: "High Income"},
       x: {aggregate: "count", title: "Number of People with High Income"},
       color: {field: "High Income", type: "nominal"},
-      //opacity: {condition: {selection: "click", value: 1}, value: 0.3},
       }
     }`/]
 
@@ -108,9 +106,9 @@
 
     [aside]
       Color this chart by:
-      [var name:"colorBy" value:`{}` /]
+      [var name:"colorBy" value:`{value: "#696969"}` /]
       [button onClick:`colorBy = {field: 'High Income', type: 'nominal'}` ]High Income[/button]
-      [button onClick:`colorBy = {}` ]None[/button]
+      [button onClick:`colorBy = {value: "#696969"}` ]None[/button]
     [/aside]
     [IdyllVegaLite data:train spec:`{
       renderer: 'svg',
@@ -132,15 +130,15 @@
 
     [aside]
       Color this chart by:
-      [var name:"colorBy2" value:`{}` /]
+      [var name:"colorBy2" value:`{value: "#696969"}` /]
       [button onClick:`colorBy2 = {field: 'High Income', type: 'nominal'}` ]High Income[/button]
-      [button onClick:`colorBy2 = {}` ]None[/button]
+      [button onClick:`colorBy2 = {value: "#696969"}` ]None[/button]
     [/aside]
     [IdyllVegaLite data:train spec:`{
       renderer: 'svg',
       mark: "bar",
       encoding: {
-      x: {field: "Years of Education"},
+      x: {field: "Years of Education", axis: {labelAngle: 0}},
       y: {aggregate: "count", title: "Number of People"},
       color: colorBy2
     }
@@ -205,7 +203,7 @@
           encoding: {
             x: {field: "Age", type: "quantitative"},
             y: {field: "Years of Education", type: "quantitative"},
-            color: {field: "High Income", type: "nominal"},
+            color: {field: "High Income", type: "nominal", scale: { domain: ["High", "Low", "Test"], range: ["#ff7f0f", "#1e77b4", "#000000"]}}
           }
         }` /]
       [/Answer]
@@ -235,7 +233,7 @@
           encoding: {
             x: {field: "Age", type: "quantitative"},
             y: {field: "Years of Education", type: "quantitative"},
-            color: {field: "High Income", type: "nominal"},
+            color: {field: "High Income", type: "nominal", scale: { domain: ["High", "Low", "Test"], range: ["#ff7f0f", "#1e77b4", "#000000"]}}           
           }
         }` /]
       [/Answer]
@@ -265,7 +263,7 @@
         encoding: {
           x: {field: "Age", type: "quantitative"},
           y: {field: "Years of Education", type: "quantitative"},
-          color: {field: "High Income", type: "nominal"},
+          color: {field: "High Income", type: "nominal", scale: { domain: ["High", "Low", "Test"], range: ["#ff7f0f", "#1e77b4", "#000000"]}}
         }
       }` /]
       [/Answer]
