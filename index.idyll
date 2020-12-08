@@ -26,7 +26,7 @@
 
 [Scroller currentStep: intro]
   [Step]
-    # A Brief History of Classification  
+    # A Brief History of Classification
 
     [aside]
       [img src:"static/images/machine_learning_cartoon.png" /]
@@ -413,8 +413,8 @@
 
   [Step]
     Before understanding logistic regression, one must first understand linear regression. Suppose we have a set
-    of points that are in tuples (x, y). We can visualize this set of points in a scatterplot, such as one right here: (fix this iframe sorry nathan)
-      [Iframe link: 'https://www.desmos.com/calculator/plfizuubiv?embed' /]
+    of points that are in tuples (x, y). We can visualize this set of points in a scatterplot, such as one right here:
+      [Iframe link: 'https://www.desmos.com/calculator/sgsjnaipwe?embed' /]
 
     What if we wanted to fit a line that best fits this data? Our data is noisy, so it won’t fit a line perfectly, 
     but one can manually try to do so. 
@@ -433,6 +433,7 @@
     [Equation]
       Y=0.5x + 3
     [/Equation]
+    [Iframe link: 'https://www.desmos.com/calculator/ja7f5rvr8v?embed' /]
   [/Step]
 
   [Step]
@@ -443,23 +444,59 @@
     For a given data point, we can find the OLS estimate using our least-squares regression line equation. 
     This OLS output will be the x-value of the datapoint. The y-value of the datapoint is the label, which, 
     in our original example, is whether or not an individual has a high income (we can set y = 1 if the data point 
-    has a high income, and y = 0 otherwise). For our dataset, we get the regression line of (ADD REGRESSION LINE HERE). 
-    We can then plot the points as such: 
+    has a high income, and y = 0 otherwise). For our dataset, we get the regression line of approximately     
+    [Equation]
+        Y = -16.4 + 0.25*Age + 0.53*YoE,
+      [/Equation]
+    where YoE is short for the "Years of Education" value. We can then plot the points as such: 
+      [Iframe link: ' https://www.desmos.com/calculator/k60y3zlqsc?embed' /]
+
+    Notice how the points with X<0 are usually labeled with 0 (low income), while points with X>0 have a label of 1 (high income).
+    We can see that there is a point with X ~ -3.593 that is a clear outlier. Looking back at our exploratory data analysis, 
+    this is the outlier point point of (9, 32) that is labeled as high income despite the fact that all 
+    points near it are low income. 
+
   [/Step]
 
   [Step]
-    Next, we fit a sigmoid function on our linear regression line. The sigmoid function is defined as: 
+    We were given the labels of high or low income for the data in our training set, which allowed us to plot the points. 
+    But how would we figure out what our model would label points we haven't seen before? 
+
+
+    To do so, we fit a sigmoid function on our linear regression line. The sigmoid function is defined as: 
       [Equation]
         f(x) =\frac{1}{1+e^{-x}}
       [/Equation] 
-    . The sigmoid function is plotted on the right.
+    The sigmoid function is plotted on the right.
 
     The sigmoid function applied to a linear regression model provides the probability that we classify the output 
-    as a 1 (having high income) given the linear regression output, or P(y=1 | x). The mathematical intuition behind 
-    this is also beyond the scope of the article, but these probabilities are then used to classify unknown points.
-    For example, if we set our threshold as 0.5, we would assign a label of 1 (having high income) if 
-    P(y=1 | x) > 0.5, and 0 (having low income) otherwise. Using our (x, y) pairs that we defined above, we can fit 
-    a sigmoid function to our dataset as such: 
+    as a 1 (having high income) given the linear regression output, or 
+    [Equation] 
+        P(y=1 | x)
+    [/Equation]. The mathematical intuition behind 
+    this is also beyond the scope of the article, but these probabilities are then used to classify unknown points. We can set a threshold value,
+    and then given a probability of the point being labeled as 1, use the threshold to decide how to classify the data point. 
+    Changing the threshold could affect what we label points as. Feel free to use the slider below to see how big our linear regression output
+    needs to be to label the data as "high income" given different threshold values. Note that the red line is the threshold probability, and the 
+    shaded green area shows the corresponding values of X that would be classified as "1", or having high income.
+    
+    [var name:"threshold" value:0.5 /]
+
+    0.4 [Range value:threshold min:0.4 max:0.6 step:0.1 /] 0.6
+
+    Value of threshold: [Display value:threshold /].
+
+    [Conditional if:`threshold === 0.4`]
+      [Iframe link: ' https://www.desmos.com/calculator/5fralpxz5v?embed' /]
+    [/Conditional]
+
+    [Conditional if:`threshold === 0.5`]
+      [Iframe link: ' https://www.desmos.com/calculator/mil4gpaykv?embed' /]
+    [/Conditional]
+
+    [Conditional if:`threshold === 0.6`]
+      [Iframe link: ' https://www.desmos.com/calculator/0zmi5vkvor?embed' /]
+    [/Conditional]
 
   [/Step]
 [/Scroller]
