@@ -86,7 +86,7 @@
   [Step]
     [p className:'introSubtitle']Exploring the dataset[/p]
 
-    As you probably realized, [b] looking at raw data isn't very useful [/b]. So now lets look at visualizations to see what
+    As you probably realized, [b] looking at raw data isn't very useful.[/b] So now lets look at visualizations to see what
     more we can learn from this dataset!
 
     [IdyllVegaLite data:train spec:`{
@@ -277,11 +277,11 @@
 
     We will now complete the same task with three commonly used classification algorithms:  
 
-      1. K Nearest Neighbors (KNN)   
+      [a href:"#knn"]1. K Nearest Neighbors (KNN)[/a]  
 
-      2. Decision Trees
+      [a href:"#decisionTrees"]2. Decision Trees[/a]  
 
-      3. Logistic Regression
+      [a href:"#logreg"]3. Logistic Regression[/a]  
 
   [/Step]
 
@@ -317,17 +317,19 @@
 
   [Graphic className:"d3-component-container"]
     
-    [Conditional if:`knn_k === 3`]
-      [img src:"static/images/knn3.png" /]
-    [/Conditional]
+    [Conditional if:`knn !== 3`]
+      [Conditional if:`knn_k === 3`]
+        [img src:"static/images/knn3.png" /]
+      [/Conditional]
 
-    [Conditional if:`knn_k === 6`]
-      [img src:"static/images/knn6.png" /]
+      [Conditional if:`knn_k === 6`]
+        [img src:"static/images/knn6.png" /]
+      [/Conditional]
     [/Conditional]
 
   [/Graphic]
 
-  [Step]
+  [Step id:'knn']
     # K Nearest Neighbors (KNN)
 
     The K Nearest Neighbors (KNN) algorithm classifies data based on data that is most similar.  
@@ -395,7 +397,7 @@
 [/Scroller]
 
 [Scroller currentStep: dt]
-  [Step]
+  [Step id:'decisionTrees']
     # Decision Trees
     (explain decision trees)
   [/Step]
@@ -414,7 +416,7 @@
       f(x)=\frac{1}{1+e^{-x}}
     [/Equation]
   [/Graphic]
-  [Step]
+  [Step id:'logreg']
     # Logistic Regression
 
     Contrary to its name, logistic regression is not a regression algorithm, but a classification algorithm. 

@@ -114,7 +114,10 @@ canvas {
 }
 
 .aside {
+  padding: 10px;
   text-align: center;
+  border: 1px solid #333;
+  box-shadow: #ddd 2px 2px 3px;
 }
 
 .correct {
