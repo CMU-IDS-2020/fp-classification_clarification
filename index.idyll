@@ -194,7 +194,7 @@
       [/div]
       [Answer correct:correct1 show:show1]
         This mystery person is both on the older side and well educated. As you can see in the graph below, s/he is surrounded 
-        by high income individuals, so there is a high likelihood that this person follows suit.
+        by high income individuals, so there is a high likelihood that this person follows suit. [br/]
         
         [data name:"mystery_one" source:"mystery1.csv" /]
         [IdyllVegaLite data:mystery_one spec:`{
@@ -274,29 +274,43 @@
 
 [Scroller currentStep: ml]
   [Step]
-    # Machine Learning
+    # Using Machine Learning
 
-    [p className:'introSubtitle']Your Mission, Should You Choose to Accept It[/p]
-
-    We will now complete the same task with two commonly used classification algorithms:  
+    We will now complete the same task with three commonly used classification algorithms:  
 
       1. K Nearest Neighbors (KNN)   
 
-      2. Decision Trees  
+      2. Decision Trees
+
+      3. Logistic Regression
 
   [/Step]
 
   [Step]
-      [img src:"static/images/warning3.gif" /]
+    [p className:'introSubtitle']Training[/p]
+
+    (something to explain training and why ML models need it)
+
+  [/Step]
+
+  [Step]
+    [img src:"static/images/warning3.gif" /]
     [p className:'introSubtitle']Warning: Overfitting[/p]
 
-    One thing to pay attention to when using algorithms is overfitting.  
+    One thing to pay attention to when using machine learning algorithms is overfitting.  
     Overfitting happens when a model is too complex and starts to classify according 
     to a random error in the data over the expected relationships between variables.  
     A model is considered “overfit” when it fits your training data really well, yet performs 
     poorly on new data. One way to identify an “overfit” is to reserve a portion of your data 
     set and introduce it after you are finished creating your model to see how it performs.
       [img src:"static/images/under_over.png" /]
+  [/Step]
+
+  [Step]
+    [p className:'introSubtitle']Cross Validation[/p]
+
+    (something to explain CV and how it prevents overfitting)
+
   [/Step]
 [/Scroller]
 

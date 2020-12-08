@@ -153,3 +153,7 @@ canvas {
   margin-top: 0;
   background: none;
 }
+
+iframe {
+  margin: 15px 0 15px 0;
+}
