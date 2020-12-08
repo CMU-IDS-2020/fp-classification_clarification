@@ -8,11 +8,11 @@
     link: "https://www.linkedin.com/in/laura-m-howard/"
   }, {
     name: "Christian Deverall",
-    link: "https://github.com/kalealex"
+    link: "https://www.linkedin.com/in/christian-deverall-cmu/"
   },
   {
     name: "Nathan Jen",
-    link: "https://github.com/kalealex"
+    link: "https://www.linkedin.com/in/nathanjen/"
   },
   {
     name: "Juliette Wong",
@@ -22,7 +22,6 @@
   background:"#222222"
   color:"#ffffff"
 /]
-
 
 [Scroller currentStep: intro]
   [Step]
