@@ -317,7 +317,6 @@
 
   [Graphic className:"d3-component-container"]
     
-    [Conditional if:`knn !== 3`]
       [Conditional if:`knn_k === 3`]
         [img src:"static/images/knn3.png" /]
       [/Conditional]
@@ -325,7 +324,6 @@
       [Conditional if:`knn_k === 6`]
         [img src:"static/images/knn6.png" /]
       [/Conditional]
-    [/Conditional]
 
   [/Graphic]
 
@@ -362,26 +360,14 @@
 
   [/Step]
 
+  [/Scroller]
+
+  [Scroller currentStep: knn2]
+
   [Step]
+
     We can apply this to the dataset, and vary the number of neighbors (K) in our model. 
-    When we do so, we see that our model outputs different accuracy levels for both the training 
-    data and the test data. 
-
-    [data name:"knn_accuracy" source:"knn.csv" /]
-
-    [IdyllVegaLite data:knn_accuracy spec:`{
-      renderer: 'svg',
-      mark: "line",
-      encoding: {
-        x: {field: "k", type: "quantitative"},
-        y: {field: "accuracy", type: "quantitative"},
-        color: {field: "type", type: "nominal"}
-      }
-    }` /]
-
-  [/Step]
-
-  [Step]
+    
     [Knn /]
     [br/]
     Here, you can play around with the number of neighbors (k) to see what our algorithm would predict 
@@ -390,7 +376,7 @@
     the KNN algorithm would actually predict high income. This is because the nearest neighbor is classified as high income. 
 
     Having K = 2 presents an interesting problem as the neighbors are classified differently. While there are many approches to break
-    a tie, we are using the "nearest" approach, which uses the calss with the nearest neighbor. There is also the "random" approach, which
+    a tie, we are using the "nearest" approach, which uses the class with the nearest neighbor. There is also the "random" approach, which
     selects the class of a random tie breaker.
   [/Step]
 
@@ -512,4 +498,26 @@
     [/Conditional]
 
   [/Step]
+[/Scroller]
+
+[Scroller currentStep: model_selection]
+  [Step]
+    # Model Selection
+    Now that we introduced ourselves to the three classification models, how would we decide which model to use? 
+
+    Note that for the earlier parts of this report, we only ran an algorithm on 32 points of data. However, the dataset these points 
+    originally came from actually had 32,561 rows of data! If we run the algorithm on all of the rows (and select the best hyperparameters for
+    knn and decision trees), we would receive the following accuracies:
+
+    [data name:"model_select" source:"model_selection.csv" /]
+    [Table data:model_select defaultPageSize:5/]
+
+    [br/] We see that for each algorithm, the training and test accuracies are close to each other, signifying that our models do not exhibit
+    overfitting. In addition, the accuracies are actually pretty close between the different algorithms! This means when looking at accuracy,
+    the performance of these models are similar. As a future step, one can look at other measures of performance, such as precision and recall, 
+    to determine what the best model is. Other factors, such as an individual's understanding or interpretability of the model, may also be
+    considerations when selecting models in the future. 
+    
+  [/Step]
+
 [/Scroller]
