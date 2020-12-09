@@ -50,7 +50,7 @@
     Think of it this way – as you can learn these concepts through experimenting with examples, computers can do the same!
 
     To grasp how machine learning works, we need to understand [b]algorithms - the method for creating models from data[/b].  
-    In this article, we will show you popular algorithms that perform classification tasks on a famous machine learning dataset.  
+    In this article, we will show you popular algorithms that perform classification tasks on a simple dataset related to income.  
   [/Step]
 [/Scroller]
 
@@ -65,7 +65,7 @@
       [img src:"static/images/students.png" /]
     [/aside]
     
-    You are starting your senior year of high school, and are trying to decide if you will futher your education beyond graduation.
+    You are starting your senior year of high school, and are [b]trying to decide if you will futher your education beyond graduation[/b].
     You are wondering if you will see high enough returns in the long run that will allow you to live a comfortable life and pay off student loans.
     To do this, you look at US census data, and gather real examples of peoples:  
 
@@ -99,7 +99,7 @@
       }
     }`/]
 
-    First, let’s look at a simple bar chart looking at the number of people with high income and without. 
+    First, let’s look at a simple bar chart showing the number of people with high income and without. 
     As you can see here, there is an equal number of people (16) with high and low income in the dataset, 
     totaling 32 records.
 
@@ -119,7 +119,7 @@
     }
     }` /]
 
-    Next, let’s look at the spread of peoples’ ages. When the high income button is selected, you can see how old 
+    Next, let’s look at the spread of peoples’ ages. When the high income button is selected to the right, you can see how old 
     people who have a high income are.
 
     [Conditional if:`colorBy.field`]
@@ -148,7 +148,7 @@
 
     [Conditional if:`colorBy2.field`]
       As you can see from this graph, those with [b]high income tend to be the ones with more years of education[/b].
-      However, we have to not that [b]this is not always the case[/b], as you will see some low income individuals 
+      However, [b]this is not always the case[/b], as you will see some low income individuals 
       with 9, 10, 11, and 13 years of experience. 
     [/Conditional]
 
@@ -175,7 +175,7 @@
     [/aside]
 
     [p className:'introSubtitle']Evaluating Your Model[/p]
-    After exploring the data, we hope that you got a sense of which patterns or variable values are more likely
+    After exploring the data, we hope that you got a sense of which patterns are more likely
     to mean that someone is high income or not. By doing this, [b]you were actually training your own model[/b], which is 
     almost exactly what machine learning models do! However, now that your model is trained, lets put it to the test
     and have you predict the income of 3 mystery people.
@@ -275,7 +275,7 @@
   [Step]
     # Using Machine Learning
 
-    We will now complete the same task with three commonly used classification algorithms:  
+    We will now complete the same classifying task with three commonly used classification algorithms:  
 
       [a href:"#knn"]1. K Nearest Neighbors (KNN)[/a]  
 
@@ -299,17 +299,13 @@
     One thing to pay attention to when using machine learning algorithms is overfitting.  
     Overfitting happens when a model is too complex and starts to classify according 
     to a random error in the data over the expected relationships between variables.  
-    A model is considered “overfit” when it fits your training data really well, yet performs 
-    poorly on new data. One way to identify an “overfit” is to reserve a portion of your data 
-    set and introduce it after you are finished creating your model to see how it performs.
+    A model is considered [b]“overfit” when it fits your training data really well, yet performs 
+    poorly on new data[/b]. 
+
+    One way to identify an “overfit” is to reserve a portion of your data 
+    set and introduce it after you are finished creating your model to see how it performs. If you model
+    performs poorly on the reserved set, it is overfit to the training data!
       [img src:"static/images/under_over.png" /]
-  [/Step]
-
-  [Step]
-    [p className:'introSubtitle']Cross Validation[/p]
-
-    (something to explain CV and how it prevents overfitting)
-
   [/Step]
 [/Scroller]
 
@@ -330,12 +326,9 @@
   [Step id:'knn']
     # K Nearest Neighbors (KNN)
 
-    The K Nearest Neighbors (KNN) algorithm classifies data based on data that is most similar.  
-    You will use this algorithm to guess income based on similar known data.  
-
-    We can apply this to the dataset, and vary the number of neighbors (K) in our model. 
-    When we do so, we see that our model outputs different accuracy levels for both the training 
-    data and the test data. 
+    The K Nearest Neighbors (KNN) algorithm [b]classifies data based on data that is most similar[/b].  
+    KNN uses similar data for classification by plotting a test point with training data points and classifies
+    the test point based on the class of the N# (K) of points closes to the test point.
   [/Step]
 
   [Step]
@@ -350,12 +343,12 @@
     
     [Conditional if:`knn_k === 3`]
     When we set K = 3, we see that there are two points near it that are blue, and one that is black.  
-    Since we would classify based on the majority, we would classify our test point as blue.
+    Since we would [b]classify based on the majority, we would classify our test point as blue[/b].
     [/Conditional]
 
     [Conditional if:`knn_k === 6`]
     However, when we set K = 6, four of the nearest neighbors are black, while only two are blue. 
-    Thus, when K = 6,  we would label our test point as black.
+    Thus, when K = 6, we would [b]label our test point as black since black now has the majority[/b].
     [/Conditional]
 
   [/Step]
@@ -366,17 +359,18 @@
 
   [Step]
 
-    We can apply this to the dataset, and vary the number of neighbors (K) in our model. 
+    Here, we will apply KNN to our dataset, where you can interact and vary the number of neighbors (K) to see how it will 
+    affect what the model predicts.
     
     [Knn /]
     [br/]
-    Here, you can play around with the number of neighbors (k) to see what our algorithm would predict 
-    using a test point with an age of 30 and 10 years of education.  
-    If you remember from above, this test point is classified as low income, but as you can see, when K is 2 or less, 
-    the KNN algorithm would actually predict high income. This is because the nearest neighbor is classified as high income. 
+    Here, you can play around with the number of neighbors (k) to see what our model would predict 
+    for the last mystery person with an age of 30 and 10 years of education.  
+    If you remember from above, this person is classified as low income, but if you make K is 2 or less, 
+    the KNN algorithm would actually predict high income. This is because the [b]nearest neighbor is classified as high income[/b]. 
 
-    Having K = 2 presents an interesting problem as the neighbors are classified differently. While there are many approches to break
-    a tie, we are using the "nearest" approach, which uses the class with the nearest neighbor. There is also the "random" approach, which
+    However, having K = 2 presents an interesting problem as the neighbors are classified differently. While there are many approches to break
+    a tie, we are [b]using the "nearest" approach, which uses the class with the nearest neighbor[/b]. There is also the "random" approach, which
     selects the class of a random tie breaker.
   [/Step]
 
@@ -406,8 +400,8 @@
     # Logistic Regression
 
     Contrary to its name, logistic regression is not a regression algorithm, but a classification algorithm. 
-    It does so by performing a linear regression based on the attributes, and then uses that regression to 
-    calculate the probability of whether or not the data point is in a certain class.
+    It does so by performing a [b]linear regression based on the attributes, and then uses that regression to 
+    calculate the probability of whether or not the data point is in a certain class[/b].
   [/Step]
 
   [Step]
@@ -420,8 +414,8 @@
       [Iframe link: 'https://www.desmos.com/calculator/plfizuubiv?embed' /]
 
     Alternatively, one can use a method called “ordinary least squares”, or OLS for short. 
-    Since a line can be written as a function, any line can be used to create estimates of an output given 
-    input values. Each point has a corresponding residual, which is computed by taking the difference between 
+    [b]Since a line can be written as a function, any line can be used to create estimates of an output given 
+    input values[/b]. Each point has a corresponding residual, which is computed by taking the difference between 
     the actual value and our estimated value. OLS is the method that calculates the slope and intercept of the 
     line that minimizes the sum of the squares of these residual values: [br/][br/]
       [Equation]
@@ -442,15 +436,15 @@
 
     For a given data point, we can find the OLS estimate using our least-squares regression line equation. 
     This OLS output will be the x-value of the datapoint. The y-value of the datapoint is the label, which, 
-    in our original example, is whether or not an individual has a high income (we can set y = 1 if the data point 
-    has a high income, and y = 0 otherwise). For our dataset, we get the regression line of approximately     
+    in our original example, is whether or not an individual has a high income ([b]we can set y = 1 if the data point 
+    has a high income, and y = 0 otherwise[/b]). For our dataset, we get the regression line of approximately     
     [Equation]
         Y = -16.4 + 0.25*Age + 0.53*YoE,
       [/Equation]
     where YoE is short for the "Years of Education" value. We can then plot the points as such: 
       [Iframe link: ' https://www.desmos.com/calculator/k60y3zlqsc?embed' /]
 
-    Notice how the points with X<0 are usually labeled with 0 (low income), while points with X>0 have a label of 1 (high income).
+    [b]Notice how the points with X<0 are usually labeled with 0 (low income), while points with X>0 have a label of 1 (high income)[/b].
     We can see that there is a point with X ~ -3.593 that is a clear outlier. Looking back at our exploratory data analysis, 
     this is the outlier point point of (9, 32) that is labeled as high income despite the fact that all 
     points near it are low income. 
@@ -503,7 +497,7 @@
 [Scroller currentStep: model_selection]
   [Step]
     # Model Selection
-    Now that we introduced ourselves to the three classification models, how would we decide which model to use? 
+    Now that we introduced ourselves to the three classification models, [b]how would we decide which model to use[/b]? 
 
     Note that for the earlier parts of this report, we only ran an algorithm on 32 points of data. However, the dataset these points 
     originally came from actually had 32,561 rows of data! If we run the algorithm on all of the rows (and select the best hyperparameters for
@@ -512,8 +506,8 @@
     [data name:"model_select" source:"model_selection.csv" /]
     [Table data:model_select defaultPageSize:5/]
 
-    [br/] We see that for each algorithm, the training and test accuracies are close to each other, signifying that our models do not exhibit
-    overfitting. In addition, the accuracies are actually pretty close between the different algorithms! This means when looking at accuracy,
+    [br/] We see that for each algorithm, the [b]training and test accuracies are close to each other, signifying that our models do not exhibit
+    overfitting[/b]. In addition, the accuracies are actually pretty close between the different algorithms! This means when looking at accuracy,
     the performance of these models are similar. As a future step, one can look at other measures of performance, such as precision and recall, 
     to determine what the best model is. Other factors, such as an individual's understanding or interpretability of the model, may also be
     considerations when selecting models in the future. 
