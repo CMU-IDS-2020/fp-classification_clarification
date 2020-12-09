@@ -23,8 +23,6 @@
   color:"#ffffff"
 /]
 
-[a href:'/dt.html']Click[/a]
-
 [Scroller currentStep: intro]
   [Step]
     # A Brief History of Classification
