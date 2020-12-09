@@ -383,7 +383,17 @@
 [Scroller currentStep: dt]
   [Step id:'decisionTrees']
     # Decision Trees
-    (explain decision trees)
+    [aside]
+      [img src:"static/images/dt.png" /]
+    [/aside]
+    The decision tree is an important machine learning algorithm that is commonly used for classification problems like in this case.
+    This algorithm follows a set of if-else conditions to visualize the data, and classify it according to the conditions. 
+    The diagram on the right shows a simple example.
+    
+    [button]
+      Click here to learn about how to train decision trees!
+    [/button]
+
   [/Step]
 
   [Step]
