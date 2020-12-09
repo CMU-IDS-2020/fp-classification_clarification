@@ -23,6 +23,8 @@
   color:"#ffffff"
 /]
 
+[a href:'/dt.html']Click[/a]
+
 [Scroller currentStep: intro]
   [Step]
     # A Brief History of Classification
@@ -126,7 +128,7 @@
       As you can see, it seems as if [b]older people are more likely to be high income[/b]. This makes 
       sense as more experience usually means a better salary!
     [/Conditional]
-
+    
     [aside]
       Color this chart by:
       [var name:"colorBy2" value:`{value: "#696969"}` /]
@@ -371,7 +373,7 @@
 
     However, having K = 2 presents an interesting problem as the neighbors are classified differently. While there are many approches to break
     a tie, we are [b]using the "nearest" approach, which uses the class with the nearest neighbor[/b]. There is also the "random" approach, which
-    selects the class of a random tie breaker.
+    selects the class of a random neighbor.
   [/Step]
 
 [/Scroller]
@@ -380,6 +382,27 @@
   [Step id:'decisionTrees']
     # Decision Trees
     (explain decision trees)
+  [/Step]
+
+  [Step]
+    [p className:'introSubtitle']What is depth?[/p]
+    (Explain depth and how it chooses the test case)
+  [/Step]
+
+  [Step]
+    [p className:'introSubtitle']Depth 1[/p]
+  [/Step]
+
+  [Step]
+    [p className:'introSubtitle']Depth 2[/p]
+  [/Step]
+
+  [Step]
+    [p className:'introSubtitle']Depth 3[/p]
+  [/Step]
+
+  [Step]
+    [p className:'introSubtitle']Depth 4[/p]
   [/Step]
 
   [Step]
