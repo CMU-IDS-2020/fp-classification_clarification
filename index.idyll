@@ -288,7 +288,11 @@
   [Step]
     [p className:'introSubtitle']Training[/p]
 
-    (something to explain training and why ML models need it)
+    Before we get into the algorithms, we need to understand why models need training. 
+    Training a model simply means teaching the model good values for a set of examples.  
+    Each example will help the model to understand the relationship between the variables 
+    (in this case, age and education years) and the classification value (income). 
+    Once the relationship is understood, the model will be able to predict an unknown classification value for new sets of variables.
 
   [/Step]
 
