@@ -36,9 +36,9 @@ Update towards the end of the project.
 * Install idyll
   * npm install -g idyll
 * Install dependencies for idyll
- * npm i 
+  * npm i 
 * Use es5 version for vega-lite and vega-embed (must be manually done)
- * For vega-lite: Go to node_modules/vega-lite, copy vega-lite.js from build-es5 directory to build directory
- * For vega-embed: Go to node_modules/vega-embed, copy vega-embed.js from build-es5 directory to build directory
+  * For vega-lite: Go to node_modules/vega-lite, copy vega-lite.js from build-es5 directory to build directory
+  * For vega-embed: Go to node_modules/vega-embed, copy vega-embed.js from build-es5 directory to build directory
 * Run the project
   * idyll
