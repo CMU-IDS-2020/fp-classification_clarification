@@ -422,7 +422,12 @@
 
   [Step]
     [p className:'introSubtitle']What is depth?[/p]
-    (Explain depth and how it chooses the test case)
+    The depth of decision trees refers to the number of layers that the tree has.  Decision tree depth is a delicate balance, as too much depth could cause overfitting, 
+    and too little depth could lead to less accuracy.  To ensure that your tree has appropriate depth, there are two commonly used methods:
+      1. Grow the tree until it overfits, then start cutting back
+      2. Prevent the tree from growing by stopping it just before perfect classification of the training data
+    Let's look at how the data performs at different depths below.
+
   [/Step]
 
   [Step]
