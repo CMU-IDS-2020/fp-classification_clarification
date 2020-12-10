@@ -442,8 +442,8 @@
 
   [Step]
     [p className:'introSubtitle']What is depth?[/p]
-    The depth of decision trees refers to the number of layers that the tree has.  Decision tree depth is a delicate balance, as too much depth could cause overfitting, 
-    and too little depth could lead to less accuracy.  To ensure that your tree has appropriate depth, there are two commonly used methods:  
+    The [b]depth of decision trees refers to the number of layers that the tree has[/b].  Decision tree depth is a delicate balance, as [b]too much depth could cause overfitting, 
+    and too little depth could lead to less accuracy[/b].  To ensure that your tree has appropriate depth, there are two commonly used methods:  
     [br/][br/]
     1. Grow the tree until it overfits, then start cutting back  
     [br/][br/]
@@ -451,13 +451,8 @@
     Let's look at how the data performs at different depths below.
 
   [/Step]
-
     [Step]
     [var name:"depth" value:1 /]
-
-    1 [Range value:depth min:1 max:4 step:1 /] 4
-
-    Max depth: [Display value:depth /].
 
     [Conditional if:`depth === 1`]
       [p className:'introSubtitle']Depth 1[/p]
@@ -478,31 +473,29 @@
       [p className:'introSubtitle']Depth 4[/p]
       [img src:"static/images/depth4.png" /]
     [/Conditional]
+    1 [Range value:depth min:1 max:4 step:1 /] 4
   [/Step]
 
   [Step]
     [BoundariesChart /]
-    [br/]
-    Now, let’s gain a different perspective on how the decision tree makes predictions. Each line in the graph above represents a split 
-    in the decision tree. This graph shows how the decision tree breaks down the data into smaller and smaller rectangles and makes the 
+    [br/][br/]
+    Now, let’s gain a different perspective on how the decision tree makes predictions. [b]Each line in the graph above represents a split 
+    in the decision tree[/b]. This graph shows how the decision tree breaks down the data into smaller and smaller rectangles and makes the 
     prediction based on which rectangle the data point lands in. [br/]
 
-    One interesting note thing to note is that as the max depth increases, the decision tree tries to account for the anomalous data point 
+    One interesting note thing to note is that [b]as the max depth increases, the decision tree tries to account for the anomalous data point [/b]
     (the 32 year old with 9 years of education who is a high earner). If we were to increase max depth past 4, the decision tree would wrap
     around the square containing the anomalous data point and predict all future data points within that square as “High Income”. 
     What is this an example of? [br/]
 
-    [var name:"correct_dt" value:`false` /]
-    [var name:"show_dt" value:`false` /]
-
-      [div className:'btn-row' onClick:`show_dt= true`]
-        [button className:'evaluate-btn' onClick:`correct_dt = true`]Overfitting[/button]
-        [button className:'evaluate-btn' onClick:`correct_dt = false`]Underfitting[/button]
-      [/div]
-
-      [Answer correct:correct_dt show:show_dt]
-        
-      [/Answer]
+  [var name:"correct_dt" value:`false` /]
+  [var name:"show_dt" value:`false` /]
+  [div onClick:`show_dt= true`]
+    [button className:'evaluate-btn' onClick:`correct_dt = true`]Overfitting[/button]
+    [button className:'evaluate-btn' onClick:`correct_dt = false`]Underfitting[/button]
+  [/div]
+  [Answer correct:correct_dt show:show_dt /]
+    
   [/Step]
 [/Scroller]
 
