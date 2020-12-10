@@ -56,14 +56,13 @@
 
 [var name:"case" value:0 /]
 [Scroller currentStep: case]
+    [Graphic className:"d3-component-container"]
+      [img src:"static/images/students.png" /]
+    [/Graphic]
   [Step]
     # Case Study 
 
     [p className:'introSubtitle']Is Income Predictable?[/p]
-
-    [aside]
-      [img src:"static/images/students.png" /]
-    [/aside]
     
     You are starting your senior year of high school, and are [b]trying to decide if you will further your education beyond graduation[/b].
     You are wondering if you will see high enough returns in the long run that will allow you to live a comfortable life and pay off student loans.
@@ -82,7 +81,9 @@
     [data name:"train" source:"train_data.csv" /]
     [Table data:train defaultPageSize:8/]
   [/Step]
+[/Scroller]
 
+[Scroller currentStep: eda]
   [Step]
     [p className:'introSubtitle']Exploring the dataset[/p]
 
@@ -276,6 +277,9 @@
 
 
 [Scroller currentStep: ml]
+    [Graphic className:"d3-component-container"]
+      [img src:"static/images/training.png" /]
+    [/Graphic]
   [Step]
     # Using Machine Learning
 
@@ -291,9 +295,6 @@
 
   [Step]
     [p className:'introSubtitle']Training[/p]
-    [aside]
-      [img src:"static/images/training.png" /]
-    [/aside]
     
     Before we get into the algorithms, we need to understand why models need training. 
     Training a model simply means teaching the model good values for a set of examples.  
@@ -390,15 +391,16 @@
 
 [/Scroller]
 
-[Scroller currentStep: dt]
+[Scroller currentStep: dt1]
+  [Graphic className:"d3-component-container"]
+    [img src:"static/images/dt.png" /]
+  [/Graphic]
 
   [Step id:'decisionTrees']
     # Decision Trees
-    [aside]
-      [img src:"static/images/dt.png" /]
-    [/aside]
     The decision tree is an important machine learning algorithm that is commonly used for classification problems, just this case!
-    This algorithm [b]follows a set of if-else conditions to classify data according to the conditions[/b]. 
+    This algorithm [b]follows a set of if-else conditions to classify data according to the conditions[/b]. An example of a decision tree is
+    shown on the right. 
     
     [var name:"showDtTrain" value:`false` /]
     [button onClick:`showDtTrain = !showDtTrain`]
@@ -449,9 +451,13 @@
     [br/][br/]
     2. Prevent the tree from growing by stopping it just before perfect classification of the training data
     Let's look at how the data performs at different depths below.
-
   [/Step]
+[/Scroller]
+
+[Scroller currentStep: dt2]
     [Step]
+    Below is a visualization showing the decision tree run on our census dataset! Use the scroller to change the maximum depth of 
+    the decision tree.
     [var name:"depth" value:1 /]
 
     [Conditional if:`depth === 1`]
@@ -587,9 +593,13 @@
     
     [var name:"threshold" value:0.5 /]
 
-    0.4 [Range value:threshold min:0.4 max:0.6 step:0.1 /] 0.6
+    0.3 [Range value:threshold min:0.3 max:0.7 step:0.1 /] 0.7
 
     Value of threshold: [Display value:threshold /].
+
+    [Conditional if:`threshold === 0.3`]
+      [Iframe link: ' https://www.desmos.com/calculator/t3yudcpd0x?embed' /]
+    [/Conditional]
 
     [Conditional if:`threshold === 0.4`]
       [Iframe link: ' https://www.desmos.com/calculator/5fralpxz5v?embed' /]
@@ -603,17 +613,25 @@
       [Iframe link: ' https://www.desmos.com/calculator/0zmi5vkvor?embed' /]
     [/Conditional]
 
+    [Conditional if:`threshold === 0.7`]
+      [Iframe link: ' https://www.desmos.com/calculator/z9ws9omj9b?embed' /]
+    [/Conditional]
+
   [/Step]
 [/Scroller]
 
 [Scroller currentStep: model_selection]
+  [Graphic className:"d3-component-container"]
+      [img src:"static/images/machine_learning_cartoon.png" /]
+  [/Graphic]
+
   [Step]
     # Model Selection
     Now that we introduced ourselves to the three classification models, [b]how would we decide which model to use[/b]? 
 
     Note that for the earlier parts of this report, we only ran an algorithm on 32 points of data. However, the dataset these points 
-    originally came from actually had 32,561 rows of data! If we run the algorithm on all of the rows (and select the best hyperparameters for
-    knn and decision trees), we would receive the following accuracies:
+    originally came from actually had 32,561 rows of data! If we run the algorithm on all of the rows (using the best hyperparameters for
+    all the models), we would receive the following accuracies:
 
     [data name:"model_select" source:"model_selection.csv" /]
     [Table data:model_select defaultPageSize:5/]
@@ -629,11 +647,12 @@
 [/Scroller]
 
 [Scroller currentStep: conclusion]
+  [Graphic className:"d3-component-container"]
+      [img src:"static/images/robot_graduated.png" /]
+  [/Graphic]
+
   [Step]
     # Conclusion
-    [aside]
-      [img src:"static/images/robot_graduated.png" /]
-    [/aside]
     [p className:'introSubtitle']Great Job![/p]
 
     We hope that you now have a good understanding of the basics of 3 different types of machine learning classification algorithms.  
