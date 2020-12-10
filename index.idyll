@@ -258,17 +258,17 @@
         This was a tough question, as this person's age and education years are not clearly on one side of the spectrum of indicators of income. 
         Sometimes machine learning can lead to a wrong classification as patterns are not always clear-cut.
 
-      [data name:"mystery_three" source:"mystery3.csv" /]
+        [data name:"mystery_three" source:"mystery3.csv" /]
 
-      [IdyllVegaLite data:mystery_three spec:`{
-        renderer: 'svg',
-        mark: "circle",
-        encoding: {
-          x: {field: "Age", type: "quantitative"},
-          y: {field: "Years of Education", type: "quantitative"},
-          color: {field: "High Income", type: "nominal", scale: { domain: ["High", "Low", "Test"], range: ["#ff7f0f", "#1e77b4", "#000000"]}}
-        }
-      }` /]
+        [IdyllVegaLite data:mystery_three spec:`{
+          renderer: 'svg',
+          mark: "circle",
+          encoding: {
+            x: {field: "Age", type: "quantitative"},
+            y: {field: "Years of Education", type: "quantitative"},
+            color: {field: "High Income", type: "nominal", scale: { domain: ["High", "Low", "Test"], range: ["#ff7f0f", "#1e77b4", "#000000"]}}
+          }
+        }` /]
       [/Answer]
     [/div]
   [/Step]
@@ -398,7 +398,7 @@
     This algorithm [b]follows a set of if-else conditions to classify data according to the conditions[/b]. 
     
     [var name:"showDtTrain" value:`false` /]
-    [button onClick:`showDtTrain = true`]
+    [button onClick:`showDtTrain = !showDtTrain`]
       Click here to learn about how to train decision trees!
     [/button]
     [Conditional if:`showDtTrain === true`]
