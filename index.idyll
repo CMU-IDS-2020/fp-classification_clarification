@@ -402,7 +402,37 @@
       Click here to learn about how to train decision trees!
     [/button]
     [Conditional if:`showDtTrain === true`]
-      (include train text here)
+      On a high level, decision trees work by reducing information entropy as the data moves down the tree and answers a set of questions.
+
+      Information entropy can be thought of as a measurement of uncertainty. Analogously, it can be thought of as how surprised you would 
+      be to discover the real label. If all you know is that half of the labels are true and the other half are false, your uncertainty 
+      when making predictions would be very high. On the other extreme, if all labels are true then you would not be surprised at all 
+      upon discovering the real label. Your uncertainty would be very low and thus entropy would be 0. 
+
+      At each step (also called a “split”), there is a question about the data at each node in the tree. 
+
+      The format of a split is “which data points have a value of less than V for the attribute A”.
+
+      1. Attributes that contain any numerical value within a range are called continuous. Both age and years of education are therefore considered continuous. 
+      The important first step in the algorithm is to create discretized values for each attribute. To keep things simple, age is discretized in steps of 5 
+      (20, 25,30..) and the years of education are discretized in steps of 2 (6, 8, 10...). Each discretization forms a candidate for a potential split.
+      [br/][br/]
+      2. You should calculate the entropy of the data at the current node using the formula for Shannon information entropy as shown on the right. 
+      This gives an indication of how mixed the dataset is at this level and the goal is to create a split that reduces the entropy of our child nodes by the most.
+      [br/][br/]
+      3. For each discretization and for each attribute:
+              [br/][br/]
+            3a. Data points that have a value less than V for attribute A are passed to the left node while data that have a value greater or equal to V for attribute 
+            A are passed to the right node.
+              [br/][br/]
+            3b. Take a weighted average of the entropy of both child nodes where the weightings are equal to the number of data points on the child nodes divided by 
+            the number of data points on the parent nodes. This average of child entropies is also called “the conditional entropy”.
+              [br/][br/]
+            3c. Subtract the parent entropy by this weighted average in order to calculate the information gain.
+            Choose the split that results in the highest information gain. To avoid making excessive splits, make sure to stop if the highest information gain is 0.
+              [br/][br/]
+            3d. Iteratively repeat steps 2 and 3 until you have reached the max depth or until all the labels of the data points belong to the same class (remember 
+            that this is when entropy equals 0).
     [/Conditional]
 
   [/Step]
