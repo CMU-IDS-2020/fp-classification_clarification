@@ -65,7 +65,7 @@
       [img src:"static/images/students.png" /]
     [/aside]
     
-    You are starting your senior year of high school, and are [b]trying to decide if you will futher your education beyond graduation[/b].
+    You are starting your senior year of high school, and are [b]trying to decide if you will further your education beyond graduation[/b].
     You are wondering if you will see high enough returns in the long run that will allow you to live a comfortable life and pay off student loans.
     To do this, you look at US census data, and gather real examples of peoples:  
 
@@ -336,7 +336,7 @@
 
     The K Nearest Neighbors (KNN) algorithm [b]classifies data based on data that is most similar[/b].  
     KNN uses similar data for classification by plotting a test point with training data points and classifies
-    the test point based on the class of the N# (K) of points closes to the test point.
+    the test point based on the class of the number (K) of points closest to the test point.
   [/Step]
 
   [Step]
@@ -385,22 +385,6 @@
 [/Scroller]
 
 [Scroller currentStep: dt]
-  [Graphic className:"d3-component-container"]
-    
-    [Conditional if:`dt === 2`]
-      [img src:"static/images/depth1.png" /]
-    [/Conditional]
-    [Conditional if:`dt === 3`]
-      [img src:"static/images/depth2.png" /]
-    [/Conditional]
-    [Conditional if:`dt === 4`]
-      [img src:"static/images/depth3.png" /]
-    [/Conditional]
-    [Conditional if:`dt === 5`]
-      [img src:"static/images/depth4.png" /]
-    [/Conditional]
-
-  [/Graphic]
 
   [Step id:'decisionTrees']
     # Decision Trees
@@ -423,27 +407,33 @@
   [Step]
     [p className:'introSubtitle']What is depth?[/p]
     The depth of decision trees refers to the number of layers that the tree has.  Decision tree depth is a delicate balance, as too much depth could cause overfitting, 
-    and too little depth could lead to less accuracy.  To ensure that your tree has appropriate depth, there are two commonly used methods:
-      1. Grow the tree until it overfits, then start cutting back
-      2. Prevent the tree from growing by stopping it just before perfect classification of the training data
+    and too little depth could lead to less accuracy.  To ensure that your tree has appropriate depth, there are two commonly used methods:  
+    [br/][br/]
+    1. Grow the tree until it overfits, then start cutting back  
+    [br/][br/]
+    2. Prevent the tree from growing by stopping it just before perfect classification of the training data
     Let's look at how the data performs at different depths below.
 
   [/Step]
 
   [Step]
     [p className:'introSubtitle']Depth 1[/p]
+    [img src:"static/images/depth1.png" style:`{width: '40%', marginLeft: '0'}` /]
   [/Step]
 
   [Step]
     [p className:'introSubtitle']Depth 2[/p]
+    [img src:"static/images/depth2.png" style:`{width: '65%', marginLeft: '0'}` /]
   [/Step]
 
   [Step]
     [p className:'introSubtitle']Depth 3[/p]
+    [img src:"static/images/depth3.png" style:`{width: '82%', marginLeft: '0'}` /]
   [/Step]
 
   [Step]
     [p className:'introSubtitle']Depth 4[/p]
+    [img src:"static/images/depth4.png" /]
   [/Step]
 
   [Step]
