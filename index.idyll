@@ -291,7 +291,10 @@
 
   [Step]
     [p className:'introSubtitle']Training[/p]
-
+    [aside]
+      [img src:"static/images/training.png" /]
+    [/aside]
+    
     Before we get into the algorithms, we need to understand why models need training. 
     Training a model simply means teaching the model good values for a set of examples.  
     Each example will help the model to understand the relationship between the variables 
@@ -449,30 +452,57 @@
 
   [/Step]
 
-  [Step]
-    [p className:'introSubtitle']Depth 1[/p]
-    [img src:"static/images/depth1.png" style:`{width: '40%', marginLeft: '0'}` /]
-  [/Step]
+    [Step]
+    [var name:"depth" value:1 /]
 
-  [Step]
-    [p className:'introSubtitle']Depth 2[/p]
-    [img src:"static/images/depth2.png" style:`{width: '65%', marginLeft: '0'}` /]
-  [/Step]
+    1 [Range value:depth min:1 max:4 step:1 /] 4
 
-  [Step]
-    [p className:'introSubtitle']Depth 3[/p]
-    [img src:"static/images/depth3.png" style:`{width: '82%', marginLeft: '0'}` /]
-  [/Step]
+    Max depth: [Display value:depth /].
 
-  [Step]
-    [p className:'introSubtitle']Depth 4[/p]
-    [img src:"static/images/depth4.png" /]
+    [Conditional if:`depth === 1`]
+      [p className:'introSubtitle']Depth 1[/p]
+      [img src:"static/images/depth1.png" style:`{width: '40%', marginLeft: '0'}` /]
+    [/Conditional]
+
+    [Conditional if:`depth === 2`]
+      [p className:'introSubtitle']Depth 2[/p]
+      [img src:"static/images/depth2.png" style:`{width: '65%', marginLeft: '0'}` /]
+    [/Conditional]
+
+    [Conditional if:`depth === 3`]
+      [p className:'introSubtitle']Depth 3[/p]
+      [img src:"static/images/depth3.png" style:`{width: '82%', marginLeft: '0'}` /]
+    [/Conditional]
+
+    [Conditional if:`depth === 4`]
+      [p className:'introSubtitle']Depth 4[/p]
+      [img src:"static/images/depth4.png" /]
+    [/Conditional]
   [/Step]
 
   [Step]
     [BoundariesChart /]
     [br/]
-    (text explaining this)
+    Now, let’s gain a different perspective on how the decision tree makes predictions. Each line in the graph above represents a split 
+    in the decision tree. This graph shows how the decision tree breaks down the data into smaller and smaller rectangles and makes the 
+    prediction based on which rectangle the data point lands in. [br/]
+
+    One interesting note thing to note is that as the max depth increases, the decision tree tries to account for the anomalous data point 
+    (the 32 year old with 9 years of education who is a high earner). If we were to increase max depth past 4, the decision tree would wrap
+    around the square containing the anomalous data point and predict all future data points within that square as “High Income”. 
+    What is this an example of? [br/]
+
+    [var name:"correct_dt" value:`false` /]
+    [var name:"show_dt" value:`false` /]
+
+      [div className:'btn-row' onClick:`show_dt= true`]
+        [button className:'evaluate-btn' onClick:`correct_dt = true`]Overfitting[/button]
+        [button className:'evaluate-btn' onClick:`correct_dt = false`]Underfitting[/button]
+      [/div]
+
+      [Answer correct:correct_dt show:show_dt]
+        
+      [/Answer]
   [/Step]
 [/Scroller]
 
