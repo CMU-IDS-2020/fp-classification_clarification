@@ -1199,9 +1199,11 @@ button {
 
 canvas {
   margin-top: 40px;
+  width: 100%;
 }
 
 .aside {
+  padding: 10px;
   text-align: center;
 }
 
