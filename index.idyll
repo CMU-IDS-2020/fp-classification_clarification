@@ -313,6 +313,9 @@
     One way to identify an “overfit” is to reserve a portion of your data 
     set and introduce it after you are finished creating your model to see how it performs. If you model
     performs poorly on the reserved set, it is overfit to the training data!
+    
+    A way to understand how the model performs is by adjusting the hyperparameters, which are higher-level properties of the model. 
+    In our case, they would be the value of K, the depth of the decision tree, or the threshold value for the logistical regression
       [img src:"static/images/under_over.png" /]
   [/Step]
 [/Scroller]
