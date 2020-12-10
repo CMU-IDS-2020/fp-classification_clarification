@@ -291,7 +291,10 @@
 
   [Step]
     [p className:'introSubtitle']Training[/p]
-
+    [aside]
+      [img src:"static/images/training.png" /]
+    [/aside]
+    
     Before we get into the algorithms, we need to understand why models need training. 
     Training a model simply means teaching the model good values for a set of examples.  
     Each example will help the model to understand the relationship between the variables 
