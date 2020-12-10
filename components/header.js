@@ -54,7 +54,7 @@ class Header extends React.PureComponent {
           ) : null
         }
         <div className='scrollContainer'>
-          <p>Scroll to Continue</p>
+          <p>Scroll to Learn!</p>
           {/* <img style={{height: 50}} src="../static/images/scroll.png" /> */}
         </div>
       </div>
