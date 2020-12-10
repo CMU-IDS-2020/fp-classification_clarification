@@ -168,12 +168,16 @@
 
     After looking at the data, do you think more years of schooling truly result in a higher income for you?
   [/Step]
+[/Scroller]
+
+  
+
+[Scroller currentStep: ml]
+    [Graphic className:"d3-component-container"]
+      [img src:"static/images/mystery-person.png" /]
+    [/Graphic]
 
   [Step]
-    [aside]
-      [img src:"static/images/mystery-person.png" /]
-    [/aside]
-
     [p className:'introSubtitle']Evaluating Your Model[/p]
     After exploring the data, we hope that you got a sense of which patterns are more likely
     to mean that someone is high income or not. By doing this, [b]you were actually training your own model[/b], which is 
