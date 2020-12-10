@@ -410,9 +410,13 @@
     The decision tree is an important machine learning algorithm that is commonly used for classification problems, just this case!
     This algorithm [b]follows a set of if-else conditions to classify data according to the conditions[/b]. 
     
-    [button]
+    [var name:"showDtTrain" value:`false` /]
+    [button onClick:`showDtTrain = true`]
       Click here to learn about how to train decision trees!
     [/button]
+    [Conditional if:`showDtTrain === true`]
+      (include train text here)
+    [/Conditional]
 
   [/Step]
 
