@@ -385,14 +385,30 @@
 [/Scroller]
 
 [Scroller currentStep: dt]
+  [Graphic className:"d3-component-container"]
+    
+    [Conditional if:`dt === 2`]
+      [img src:"static/images/depth1.png" /]
+    [/Conditional]
+    [Conditional if:`dt === 3`]
+      [img src:"static/images/depth2.png" /]
+    [/Conditional]
+    [Conditional if:`dt === 4`]
+      [img src:"static/images/depth3.png" /]
+    [/Conditional]
+    [Conditional if:`dt === 5`]
+      [img src:"static/images/depth4.png" /]
+    [/Conditional]
+
+  [/Graphic]
+
   [Step id:'decisionTrees']
     # Decision Trees
     [aside]
       [img src:"static/images/dt.png" /]
     [/aside]
-    The decision tree is an important machine learning algorithm that is commonly used for classification problems like in this case.
-    This algorithm follows a set of if-else conditions to visualize the data, and classify it according to the conditions. 
-    The diagram on the right shows a simple example.
+    The decision tree is an important machine learning algorithm that is commonly used for classification problems, just this case!
+    This algorithm [b]follows a set of if-else conditions to classify data according to the conditions[/b]. 
     
     [button]
       Click here to learn about how to train decision trees!
@@ -561,11 +577,13 @@
     [aside]
       [img src:"static/images/robot_graduated.png" /]
     [/aside]
-    [b]Great job![/b]
+    [p className:'introSubtitle']Great Job![/p]
 
     We hope that you now have a good understanding of the basics of 3 different types of machine learning classification algorithms.  
     As you saw, these algorithms learn from the data input given and use it to classify new observations. 
-    These algorithms are used to perform analytical tasks that would take humans hundreds of more hours to perform!
+    These algorithms are used to perform analytical tasks that would take humans hundreds of more hours to perform!  
+
+
     Machine learning has applications in many fields like medical, defense, finance, and technology just to name a few.  
     And, classification algorithms are at the heart of many innovations like image recognition, speech recognition, self-driving cars, 
     email spam filtering, and ecommerce product recommendations.  We hope you are inspired to further your knowledge about these topics!
