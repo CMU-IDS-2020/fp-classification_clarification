@@ -476,7 +476,8 @@
         min_{m, b} \sum_{x_i \in points} (y_i - (m\cdot x_i - b))^2
       [/Equation]
 
-    For our example, our ordinary least-squares regression line is: 
+    [b]This scary equation pretty much just helps us find the line that best fits our data points.[/b]
+    So, for our example, our ordinary least-squares regression line is: 
     [Equation]
       Y=0.5x + 3
     [/Equation]
@@ -489,25 +490,24 @@
     how to perform logistic regression. 
 
     For a given data point, we can find the OLS estimate using our least-squares regression line equation. 
-    This OLS output will be the x-value of the datapoint. The y-value of the datapoint is the label, which, 
+    This [b]OLS output will be the x-value of the datapoint[/b]. The y-value of the datapoint is the label, which, 
     in our original example, is whether or not an individual has a high income ([b]we can set y = 1 if the data point 
-    has a high income, and y = 0 otherwise[/b]). For our dataset, we get the regression line of approximately     
+    has a high income, and y = 0 otherwise[/b]). For our dataset, we get the regression line of approximately[br/][br/]
     [Equation]
-        Y = -16.4 + 0.25*Age + 0.53*YoE,
-      [/Equation]
+      Y = -16.4 + 0.25*Age + 0.53*YoE,
+    [/Equation][br/][br/]
     where YoE is short for the "Years of Education" value. We can then plot the points as such: 
-      [Iframe link: ' https://www.desmos.com/calculator/k60y3zlqsc?embed' /]
+    [Iframe link: ' https://www.desmos.com/calculator/k60y3zlqsc?embed' /]
 
     [b]Notice how the points with X<0 are usually labeled with 0 (low income), while points with X>0 have a label of 1 (high income)[/b].
     We can see that there is a point with X ~ -3.593 that is a clear outlier. Looking back at our exploratory data analysis, 
     this is the outlier point point of (9, 32) that is labeled as high income despite the fact that all 
-    points near it are low income. 
+    similar points are low income. 
 
   [/Step]
 
   [Step]
-    We were given the labels of high or low income for the data in our training set, which allowed us to plot the points. 
-    But how would we figure out what our model would label points we haven't seen before? 
+    Moving beyond the dataset, the next question is naturally [b]how would we figure out what our model would label points we haven't seen before[/b]? 
 
 
     To do so, we fit a sigmoid function on our linear regression line. The sigmoid function is defined as: 
@@ -516,16 +516,18 @@
       [/Equation] 
     The sigmoid function is plotted on the right.
 
-    The sigmoid function applied to a linear regression model provides the probability that we classify the output 
-    as a 1 (having high income) given the linear regression output, or 
+    [b]The sigmoid function applied to a linear regression model provides the probability that we classify the output 
+    as a 1 (having high income) given the linear regression output [/b], or 
     [Equation] 
         P(y=1 | x)
     [/Equation]. The mathematical intuition behind 
-    this is also beyond the scope of the article, but these probabilities are then used to classify unknown points. We can set a threshold value,
-    and then given a probability of the point being labeled as 1, use the threshold to decide how to classify the data point. 
+    this is also beyond the scope of the article, but these probabilities are then used to classify unknown points. We can [b]set a threshold value,
+    and then given a probability of the point being labeled as 1, use the threshold to decide how to classify the data point[/b].  
+    [br/]
+    [br/]
     Changing the threshold could affect what we label points as. Feel free to use the slider below to see how big our linear regression output
-    needs to be to label the data as "high income" given different threshold values. Note that the red line is the threshold probability, and the 
-    shaded green area shows the corresponding values of X that would be classified as "1", or having high income.
+    needs to be to label the data as "high income" given different threshold values. [b]Note that the red line is the threshold probability, and the 
+    shaded green area shows the corresponding values of X that would be classified as "1", or having high income[/b].
     
     [var name:"threshold" value:0.5 /]
 
@@ -562,8 +564,8 @@
 
     [br/] We see that for each algorithm, the [b]training and test accuracies are close to each other, signifying that our models do not exhibit
     overfitting[/b]. In addition, the accuracies are actually pretty close between the different algorithms! This means when looking at accuracy,
-    the performance of these models are similar. As a future step, one can look at other measures of performance, such as precision and recall, 
-    to determine what the best model is. Other factors, such as an individual's understanding or interpretability of the model, may also be
+    the performance of these models are similar. [b]As a future step, one can look at other measures of performance, such as precision and recall, 
+    to determine what the best model is[/b]. Other factors, such as an individual's understanding or interpretability of the model, may also be
     considerations when selecting models in the future. 
     
   [/Step]
