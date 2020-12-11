@@ -12,7 +12,8 @@
 
 ## Work distribution
 
-Update towards the end of the project.
+### Nathan
+I was primarily responsible for the styling of our web application, which meant writing custom CSS and bolding text. Additionally, since I am the only team member with JavaScript experience, I had to build out the custom React components for our application as well as implement a lot of our app's functionality. Finally, I was responsible for figuring out how to deploy our Idyll application to GitHub pages. 
 
 ## Deliverables
 
@@ -28,10 +29,10 @@ Update towards the end of the project.
 
 ### Final deliverables
 
-- [ ] All code for the project should be in the repo.
+- [x] All code for the project should be in the repo.
 - [x] A 5 minute video demonstration.
 - [ ] Update Readme according to Canvas instructions.
-- [ ] A detailed project report. The contact should submit the video and report as a PDF on Canvas.
+- [x] A detailed project report. The contact should submit the video and report as a PDF on Canvas.
 
 ## Running the Project
 
