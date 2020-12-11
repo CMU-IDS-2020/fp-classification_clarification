@@ -8,6 +8,8 @@
   * Laura Howard (lmhoward@andrew.cmu.edu)
 * **Track**: Narrative
 
+![](gifs/dt.gif)
+
 ## Work distribution
 
 Update towards the end of the project.
