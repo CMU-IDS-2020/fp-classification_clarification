@@ -407,14 +407,14 @@
       Click here to learn about how to train decision trees!
     [/button]
     [Conditional if:`showDtTrain === true`]
-      On a high level, decision trees work by reducing information entropy as the data moves down the tree and answers a set of questions.
+      On a high level, decision trees work by [b]reducing information entropy[/b] as the data moves down the tree and answers a set of questions.
 
-      Information entropy can be thought of as a measurement of uncertainty. Analogously, it can be thought of as how surprised you would 
+      [b]Information entropy can be thought of as a measurement of uncertainty[/b]. Analogously, it can be thought of as how surprised you would 
       be to discover the real label. If all you know is that half of the labels are true and the other half are false, your uncertainty 
       when making predictions would be very high. On the other extreme, if all labels are true then you would not be surprised at all 
       upon discovering the real label. Your uncertainty would be very low and thus entropy would be 0. 
 
-      At each step (also called a “split”), there is a question about the data at each node in the tree. 
+      [b]At each step (also called a “split”), there is a question about the data at each node in the tree[/b]. 
 
       The format of a split is “which data points have a value of less than V for the attribute A”.
 
