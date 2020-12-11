@@ -7,10 +7,10 @@
   * Nathan Jen (njen@andrew.cmu.edu)
   * Laura Howard (lmhoward@andrew.cmu.edu)
 * **Track**: Narrative
-* **Link to Writeup
+* **Link to Writeup**
   * https://docs.google.com/document/d/1BcS38FISWubnDMzgZH8WvUXMPNu6EFGlB9GF6Lm1b5M/edit
   * https://github.com/CMU-IDS-2020/fp-classification_clarification/blob/main/Report.md
-* **Link to Video
+* **Link to Video**
   * https://drive.google.com/file/d/1DVViARjZJs3MUZ26VO4On_xhRMmVCaHW/view?usp=sharing 
 
 
