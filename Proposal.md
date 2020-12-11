@@ -1,9 +1,10 @@
 # Final Project Proposal
 
-**GitHub Repo URL**: TODO
+**GitHub Repo URL**: https://github.com/CMU-IDS-2020/fp-classification_clarification
 
-A short summary (3-4 paragraphs, about one page) of the data science problem you are addressing and what your solution will address. Feel free to include a figure or sketch to illustrate your project.
+Once a niche, promising subfield of computer science, machine learning is now a powerful tool that many of the world’s biggest institutions rely on to achieve success. Whether people realize it or not, machine learning already has a tremendous impact on people’s daily lives, and it will continue to have a large impact as time goes on. However, through the rise of many popular movies or other forms of entertainment that depict machine learning incorrectly, there are many misconceptions about what machine learning is and what it is capable of. Our team recognizes the discrepancy between the positive impact of machine learning and the negative perception some individuals may have of it, and we realize this is a problem. For instance, one major issue that may result from this discrepancy is pushback against a machine learning solution that is well-intentioned and is effective at solving important problems. We hope that our final project is effective at educating people about what machine learning is capable of, so more people have a better understanding of its popularity and impact on society. 
 
-You can use the "The Heilmeier Catechism" to evaluate your project idea. Please also list which track you choose for your project.
+We plan on solving the problem of machine learning unapproachability through a "scrollytelling" narrative application, consisting of text explanations with interactive data visualizations to aid the user in learning.  Our vision for the app is to not only teach users that are new to machine learning about the history, but to also guide them through some simple classification algorithms.
 
-Then one member of your group should submit a PDF of your proposal to Canvas.
+Our project will explain, compare, and contrast three classification algorithms: K-Nearest Neighbors, Decision Trees, and Logistic Regression. In terms of workflow, we want our readers to feel as though they are implementing the algorithms as they read about them. Thus, we will provide block diagrams and configuration tables, which the reader can interact with to change the model and view the corresponding output. An example of this for decision trees is that users can drag-and-drop feature splits and see how the model’s predictions vary accordingly. In addition, a large objective of our interactive visualizations will be to explain the concept of overfitting. We will allow readers to increase model complexity on all 3 types of algorithms and view the effect this has on training error and validation error.
+
