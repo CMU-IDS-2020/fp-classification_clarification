@@ -15,6 +15,9 @@
 ### Nathan
 I was primarily responsible for the styling of our web application, which meant writing custom CSS and bolding text. Additionally, since I am the only team member with JavaScript experience, I had to build out the custom React components for our application as well as implement a lot of our app's functionality. Finally, I was responsible for figuring out how to deploy our Idyll application to GitHub pages. 
 
+## Project Process
+Our project progressed slowly for the first couple of weeks because we had to get familair with the Idyll markup language. 
+
 ## Deliverables
 
 ### Proposal
