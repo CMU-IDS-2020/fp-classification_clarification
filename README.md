@@ -22,11 +22,16 @@ The goal of our project is to explain classification algorithms to readers witho
 
 ## Work distribution
 
+
+
 ### Juliette
 I primarily worked on the visualizations for the report. I created the visualizations for the EDA and mystery man section using vega-lite, and I helped use idyll to make the decision tree visualization interactive. Additionally, I created the content (text and graphs) for the logistic regression section, and ran the algorithms to compute accuracies for the model selection section.
 
 ### Nathan
 I was primarily responsible for the styling of our web application, which meant writing custom CSS and bolding text. Additionally, since I am the only team member with JavaScript experience, I had to build out the custom React components for our application as well as implement a lot of our app's functionality. Finally, I was responsible for figuring out how to deploy our Idyll application to GitHub pages. 
+
+### Christian
+I mainly handled the data side of things including creating the dataset and structures for the decision trees. I created the interactive visualisations for decision trees boundaries and KNN in Vega-lite and helped to visualize the trees in D3. I also wrote some of the text that explained the inner-workings of the classification algorithms.
 
 ### Laura
 For this project, I was primarily in a product management role. I managed the team's shared folders, organized meetings, and helped to define the narrative. I also helped with the layout design, sourced images and gifs, wrote narrative text, and inserted them into the Idyll application.
