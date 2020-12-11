@@ -1,6 +1,7 @@
 # Final Project Report
 
 **Online URL**: https://cmu-ids-2020.github.io/fp-classification_clarification/
+
 **Project Repo**: https://github.com/CMU-IDS-2020/fp-classification_clarification
 
 The goal of our project is to explain classification algorithms to readers without prior knowledge in machine learning. Our solution is to create an interactive “scrollytelling” narrative. Our narrative is centered around a case study where readers see whether education and age have an impact on income level. The narrative first introduces the dataset, allowing users to understand the basis of our models through exploratory data analysis. Next, we cover some of the inherent problems common to all machine learning problems, such as the concept of training data and overfitting. Finally, we introduce the three classification algorithms, K-Nearest Neighbors, Decision Trees, and Logistic Regression. In these sections, we include interactive visualizations that allow the user to see how changing the hyperparameters can affect the results of the model. We hope that by reading and interacting with the article, readers will understand at a high-level how these different classifications work, and that there are multiple ways to achieve similar outcomes with machine learning. 
@@ -45,7 +46,7 @@ For the visualizations and introduction to the algorithm, we ran the different m
 
 ## Results
 
-The narrative article shows many different smaller interactive visualizations in an effort to ease the digestion of information. This method is supported by educational psychologist Richard E. Mayer who affirms that, “People learn better when a complex continuous lesson is broken into separate segments. The learner’s working memory is less likely to be overloaded with essential processing when the essential material is presented in bite-size chunks rather than as a whole continuous lesson.” [3]
+The narrative article shows many different smaller interactive visualizations in an effort to ease the digestion of information. This method is supported by educational psychologist Richard E. Mayer who affirms that, “People learn better when a complex continuous lesson is broken into separate segments. The learner’s working memory is less likely to be overloaded with essential processing when the essential material is presented in bite-size chunks rather than as a whole continuous lesson.” [3][3]
 
 The sequence of bite-sized interactive exploratory data analysis and hyperparameter selections enables the reader to process each chunk of information, and use the knowledge from previous sections to build upon new information.
 
