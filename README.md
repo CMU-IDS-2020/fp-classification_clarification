@@ -26,7 +26,7 @@ The goal of our project is to explain classification algorithms to readers witho
 I was primarily responsible for the styling of our web application, which meant writing custom CSS and bolding text. Additionally, since I am the only team member with JavaScript experience, I had to build out the custom React components for our application as well as implement a lot of our app's functionality. Finally, I was responsible for figuring out how to deploy our Idyll application to GitHub pages. 
 
 ## Project Process
-Our project progressed slowly for the first couple of weeks because we had to get familair with the Idyll markup language. 
+Our project progressed relatively slowly in the initial stage as we had to gain familiarity with the Idyll markup language. The major challenge here was integrating Idyll with D3 and vega-lite components, which contained limited documentation. For datasets, we initially used the Iris flower dataset, however we later settled on the 1994 Census dataset to perform income prediction. We created a plan for the 3 algorithms we wanted to cover and the technologies we would use to visualize them. This allowed us to simultaneously work on the text contents and visualizations. In order to promote seamless transitions from text to visualizations, we changed the text contents iteratively as we created updated versions of our visualizations. In the end stage of the project, we focused on making stylistic adjustments in Idyll based on group feedback and adding decoration to our visualizations.
 
 ## Deliverables
 
@@ -44,11 +44,12 @@ Our project progressed slowly for the first couple of weeks because we had to ge
 
 - [x] All code for the project should be in the repo.
 - [x] A 5 minute video demonstration.
-- [ ] Update Readme according to Canvas instructions.
+- [x] Update Readme according to Canvas instructions.
 - [x] A detailed project report. The contact should submit the video and report as a PDF on Canvas.
 
 ## Running the Project
 
+* Install npm ([follow this link][https://www.npmjs.com/get-npm])
 * Install idyll
   * npm install -g idyll
 * Install dependencies for idyll
